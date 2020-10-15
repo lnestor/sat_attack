@@ -2,31 +2,38 @@ from z3 import *
 
 class CircuitBuilder():
     def build_miter(self, nodes, outputs):
-        circuit0 = self.build(nodes, outputs, "ckt0")
-        circuit1 = self.build(nodes, outputs, "ckt1")
+        ckt0, p_input_names, key_input_names0 = self.build(nodes, outputs, "ckt0")
+        ckt1, p_input_names, key_input_names1 = self.build(nodes, outputs, "ckt1")
 
-        output_xors = [None] * len(circuit0)
-        for i in range(len(circuit0)):
-            output_xors[i] = Xor(circuit0[i], circuit1[i])
+        output_xors = [None] * len(ckt0)
+        for i in range(len(ckt0)):
+            output_xors[i] = Xor(ckt0[i], ckt1[i])
 
         miter_circuit = Or(*output_xors)
-        return miter_circuit
+        return miter_circuit, p_input_names, key_input_names0 + key_input_names1
 
     def build(self, nodes, outputs, key_suffix = None):
+        self.key_input_names = []
+        self.p_input_names = []
         circuit_outputs = []
 
         for output_name in outputs:
             circuit_outputs.append(self.__construct(nodes, output_name, key_suffix))
 
-        return circuit_outputs
+        return circuit_outputs, self.p_input_names, self.key_input_names
 
     def __construct(self, nodes, name, key_suffix):
         node = nodes[name]
         input_names = node.inputs
 
         if node.type == "Key Input":
-            return Bool(self.__key_name(name, key_suffix))
+            key_name = self.__key_name(name, key_suffix)
+            if key_name not in self.key_input_names:
+                self.key_input_names.append(key_name)
+            return Bool(key_name)
         elif node.type == "Primary Input":
+            if name not in self.p_input_names:
+                self.p_input_names.append(name)
             return Bool(name)
 
         input_logic = []
