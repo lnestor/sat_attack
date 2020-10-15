@@ -7,9 +7,11 @@ class DipFinder:
         self.solver.add(ckt.z3_miter() == True)
 
     def find_dip(self):
-        self.solver.check()
-        model = self.solver.model()
+        if str(self.solver.check()) != "sat":
+            print("ERROR - not satisfied")
+            raise
 
+        model = self.solver.model()
         return self.__extract_dip_from_model(model)
 
     def mark_incorrect_keys(self, keys):
@@ -17,12 +19,17 @@ class DipFinder:
             self.mark_incorrect_key_single(key)
 
     def mark_incorrect_key_single(self, key):
-        key_constraints = []
+        # TODO: redo this better
+        key_constraints_ckt0 = []
+        key_constraints_ckt1 = []
         for name, value in key.items():
-            z3obj = Bool(name)
-            key_constraints.append(z3obj == value)
+            z3obj0 = Bool(name + "__ckt0")
+            z3obj1 = Bool(name + "__ckt1")
+            key_constraints_ckt0.append(z3obj0 == value)
+            key_constraints_ckt1.append(z3obj1 == value)
 
-        self.solver.add(And(*key_constraints) == False)
+        self.solver.add(And(*key_constraints_ckt0) == False)
+        self.solver.add(And(*key_constraints_ckt1) == False)
 
     def __extract_dip_from_model(self, model):
         primary_inputs = self.ckt.primary_inputs()

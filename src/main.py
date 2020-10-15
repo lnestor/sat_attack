@@ -32,11 +32,13 @@ def find_incorrect_keys(locked_ckt, key_space, oracle_output, dip):
     return incorrect_keys
 
 if __name__ == "__main__":
-    locked_ckt = read_benchmark("benchmarks/sample_multiple_outputs.v")
+    locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
+    # locked_ckt = read_benchmark("benchmarks/sample_multiple_outputs.v")
     key_space = KeySpace(locked_ckt)
     finder = DipFinder(locked_ckt)
 
-    oracle_ckt = read_benchmark("benchmarks/sample_multiple_outputs_oracle.v")
+    oracle_ckt = read_benchmark("benchmarks/sample/sample_unlocked.v")
+    # oracle_ckt = read_benchmark("benchmarks/sample_multiple_outputs_oracle.v")
     runner = OracleRunner(oracle_ckt)
 
     while len(key_space) > 1:
@@ -49,11 +51,15 @@ if __name__ == "__main__":
 
         incorrect_keys = find_incorrect_keys(locked_ckt, key_space, oracle_output, dip)
         print("Incorrect keys: " + str(incorrect_keys))
+        print("")
+
+        if len(incorrect_keys) == 0:
+            break
 
         key_space.remove(incorrect_keys)
         finder.mark_incorrect_keys(incorrect_keys)
 
-        print("")
 
+    print("=== Remaining keys ===")
     for i in key_space:
         print(i)
