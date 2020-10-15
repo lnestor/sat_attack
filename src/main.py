@@ -1,13 +1,21 @@
+from z3 import *
+
 from tokenizer import Tokenizer
-from token_type import TokenType
+from parser import Parser
+from circuit_builder import CircuitBuilder
 
 if __name__ == "__main__":
     with open("benchmarks/sample.v") as f:
         t = Tokenizer(f)
+        p = Parser()
+        nodes, outputs = p.parse(t)
 
-        tt = t.get_token()
+        builder = CircuitBuilder()
+        circuit = builder.build(nodes, outputs)
 
-        while tt != TokenType.EOF:
-            print(tt)
-            t.skip_token()
-            tt = t.get_token()
+        s = Solver()
+        s.add(circuit[0] == False)
+
+        print(circuit)
+        print(s.check())
+        print(s.model())

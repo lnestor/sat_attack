@@ -17,17 +17,20 @@ class Tokenizer():
         "and": TokenType.AND,
         "xor": TokenType.XOR,
         "endmodule": TokenType.ENDMODULE
-
     }
+
     def __init__(self, fobj):
         self.fobj = fobj
         self.__find_token()
 
-    def get_token(self):
+    def get_token_type(self):
         return self.token_type
 
     def skip_token(self):
         self.__find_token()
+
+    def id_value(self):
+        return self.token
 
     def __find_token(self):
         state = State.START
