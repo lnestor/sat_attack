@@ -11,11 +11,11 @@ if __name__ == "__main__":
         nodes, outputs = p.parse(t)
 
         builder = CircuitBuilder()
-        circuit = builder.build(nodes, outputs)
+
+        miter_circuit = builder.build_miter(nodes, outputs)
 
         s = Solver()
-        s.add(circuit[0] == False)
-
-        print(circuit)
+        s.add(miter_circuit == True)
+        print(miter_circuit)
         print(s.check())
         print(s.model())

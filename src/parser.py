@@ -31,7 +31,9 @@ class Parser():
         tokenizer.skip_token() # input token
 
         while True:
-            self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], "Input")
+            # This check is NOT robust and could be improved probably
+            type = "Key Input" if "key" in tokenizer.id_value() else "Primary Input"
+            self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], type)
             tokenizer.skip_token()
 
             if tokenizer.get_token_type() == TokenType.SEMICOLON:
