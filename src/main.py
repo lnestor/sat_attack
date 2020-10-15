@@ -11,7 +11,6 @@ if __name__ == "__main__":
         nodes, outputs = p.parse(t)
 
         builder = CircuitBuilder()
-
         miter_circuit = builder.build_miter(nodes, outputs)
 
         s = Solver()

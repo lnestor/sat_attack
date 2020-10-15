@@ -20,3 +20,5 @@ class TokenType(Enum):
     AND = 16
     XOR = 17
     ENDMODULE = 18
+    OR = 19
+    NOT = 20

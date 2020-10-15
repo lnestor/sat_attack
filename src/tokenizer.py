@@ -16,6 +16,8 @@ class Tokenizer():
         "wire": TokenType.WIRE,
         "and": TokenType.AND,
         "xor": TokenType.XOR,
+        "or": TokenType.OR,
+        "not": TokenType.NOT,
         "endmodule": TokenType.ENDMODULE
     }
 

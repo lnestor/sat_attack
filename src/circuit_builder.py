@@ -2,9 +2,6 @@ from z3 import *
 
 class CircuitBuilder():
     def build_miter(self, nodes, outputs):
-        # Another thing: wire arrays we can just make as single nodes, so expand wire_array[0:31]
-        # into 31 uniquely named nodes
-
         circuit0 = self.build(nodes, outputs, "ckt0")
         circuit1 = self.build(nodes, outputs, "ckt1")
 
@@ -40,6 +37,10 @@ class CircuitBuilder():
             return And(*input_logic)
         elif node.type == "Xor":
             return Xor(*input_logic)
+        elif node.type == "Or":
+            return Or(*input_logic)
+        elif node.type == "Not":
+            return Not(*input_logic)
         else:
             print("Unknown node type " + node.type)
 

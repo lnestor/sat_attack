@@ -19,9 +19,13 @@ class Parser():
             elif token_type == TokenType.WIRE:
                 self.__parse_wires(tokenizer)
             elif token_type == TokenType.AND:
-                self.__parse_gate(tokenizer, "And")
+                self.__parse_gate2(tokenizer, "And")
             elif token_type == TokenType.XOR:
-                self.__parse_gate(tokenizer, "Xor")
+                self.__parse_gate2(tokenizer, "Xor")
+            elif token_type == TokenType.OR:
+                self.__parse_gate2(tokenizer, "Or")
+            elif token_type == TokenType.NOT:
+                self.__parse_gate1(tokenizer, "Not")
             else:
                 tokenizer.skip_token()
 
@@ -69,7 +73,23 @@ class Parser():
             else:
                 tokenizer.skip_token()
 
-    def __parse_gate(self, tokenizer, gate_type):
+    def __parse_gate1(self, tokenizer, gate_type):
+        tokenizer.skip_token() # gate token
+        tokenizer.skip_token() # gate identifier token
+        tokenizer.skip_token() # left paren token
+
+        output_name = tokenizer.id_value()
+        tokenizer.skip_token() # id
+        tokenizer.skip_token() # comma
+        input_name = tokenizer.id_value()
+        tokenizer.skip_token() # id
+        tokenizer.skip_token() # comma
+        tokenizer.skip_token() # semicolon
+
+        self.nodes[output_name].inputs = [input_name]
+        self.nodes[output_name].type = gate_type
+
+    def __parse_gate2(self, tokenizer, gate_type):
         tokenizer.skip_token() # gate token
         tokenizer.skip_token() # gate identifier token
         tokenizer.skip_token() # left paren token
