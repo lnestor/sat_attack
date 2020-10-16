@@ -22,3 +22,5 @@ class TokenType(Enum):
     ENDMODULE = 18
     OR = 19
     NOT = 20
+    NUMBER = 21
+    COLON = 22

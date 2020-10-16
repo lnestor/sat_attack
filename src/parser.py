@@ -66,25 +66,49 @@ class Parser():
         tokenizer.skip_token() # wire token
 
         while True:
-            self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], "Wire")
-            tokenizer.skip_token()
-
             if tokenizer.get_token_type() == TokenType.SEMICOLON:
-                tokenizer.skip_token()
+                tokenizer.skip_token() # semicolon
                 break
+            elif tokenizer.get_token_type() == TokenType.COMMA:
+                tokenizer.skip_token() # comma
+            elif tokenizer.get_token_type() == TokenType.LEFT_BRACKET:
+                # bus
+                self.__parse_bus(tokenizer)
             else:
-                tokenizer.skip_token()
+                # normal wire
+                self.__parse_single_wire(tokenizer)
+
+    def __parse_bus(self, tokenizer):
+        tokenizer.skip_token() # left bracket
+        low_number = tokenizer.int_value()
+        tokenizer.skip_token() # low number
+        tokenizer.skip_token() # colon
+        high_number = tokenizer.int_value()
+        tokenizer.skip_token() # high value
+        tokenizer.skip_token() # right bracket
+        bus_name = tokenizer.id_value()
+        tokenizer.skip_token() # bus name
+
+        for i in range(high_number - low_number + 1):
+            wire_name = bus_name + "__index" + str(i)
+            self.nodes[wire_name] = Node(wire_name, [], "Wire")
+
+    def __parse_single_wire(self, tokenizer):
+        self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], "Wire")
+        tokenizer.skip_token()
 
     def __parse_gate1(self, tokenizer, gate_type):
         tokenizer.skip_token() # gate token
         tokenizer.skip_token() # gate identifier token
         tokenizer.skip_token() # left paren token
 
-        output_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        # output_name = tokenizer.id_value()
+        # tokenizer.skip_token() # id
+        output_name = self.__parse_id(tokenizer)
         tokenizer.skip_token() # comma
-        input_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        # input_name = tokenizer.id_value()
+        # tokenizer.skip_token() # id
+        input_name = self.__parse_id(tokenizer)
         tokenizer.skip_token() # comma
         tokenizer.skip_token() # semicolon
 
@@ -96,16 +120,34 @@ class Parser():
         tokenizer.skip_token() # gate identifier token
         tokenizer.skip_token() # left paren token
 
-        output_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        # output_name = tokenizer.id_value()
+        # tokenizer.skip_token() # id
+        output_name = self.__parse_id(tokenizer)
         tokenizer.skip_token() # comma
-        input1_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        # input1_name = tokenizer.id_value()
+        # tokenizer.skip_token() # id
+        input1_name = self.__parse_id(tokenizer)
         tokenizer.skip_token() # comma
-        input2_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        # input2_name = tokenizer.id_value()
+        # tokenizer.skip_token() # id
+        input2_name = self.__parse_id(tokenizer)
         tokenizer.skip_token() # comma
         tokenizer.skip_token() # semicolon
 
         self.nodes[output_name].inputs = [input1_name, input2_name]
         self.nodes[output_name].type = gate_type
+
+    def __parse_id(self, tokenizer):
+        id_name = tokenizer.id_value()
+        tokenizer.skip_token() # id
+
+        if tokenizer.get_token_type() == TokenType.LEFT_BRACKET:
+            tokenizer.skip_token() # left bracket
+            index = tokenizer.int_value()
+            tokenizer.skip_token() # number
+            tokenizer.skip_token() # right bracket
+
+            return id_name + "__index" + str(index)
+        else:
+            return id_name
+

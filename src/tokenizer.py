@@ -4,7 +4,7 @@ from token_type import TokenType
 class State(Enum):
     START = 0
     GATHERING_IDENTIFIER = 1
-    GATHERING_TIMING = 9
+    GATHERING_DIGITS = 9
     ERROR = 10
 
 class Tokenizer():
@@ -33,6 +33,9 @@ class Tokenizer():
 
     def id_value(self):
         return self.token
+
+    def int_value(self):
+        return int(self.token)
 
     def __find_token(self):
         state = State.START
@@ -72,10 +75,13 @@ class Tokenizer():
                 elif next_char == ")":
                     self.token_type = TokenType.RIGHT_PAREN
                     break
+                elif next_char == ":":
+                    self.token_type = TokenType.COLON
+                    break
                 elif next_char.isalpha():
                     state = State.GATHERING_IDENTIFIER
                 elif next_char.isdigit():
-                    state = State.GATHERING_TIMING
+                    state = State.GATHERING_DIGITS
                 elif not next_char.isspace():
                     # Do not error if we are reading a space
                     state = State.ERROR
@@ -90,10 +96,16 @@ class Tokenizer():
                 else:
                     self.token_type = TokenType.IDENTIFIER
                     break
-            elif state == State.GATHERING_TIMING:
-                self.token += self.fobj.read(2)
-                self.token_type = TokenType.TIMING
-                break
+            elif state == State.GATHERING_DIGITS:
+                next_char = self.__peek()
+
+                if next_char.isalpha():
+                    self.token += self.fobj.read(2)
+                    self.token_type = TokenType.TIMING
+                    break
+                elif not next_char.isdigit():
+                    self.token_type = TokenType.NUMBER
+                    break
             elif state == State.ERROR:
                 print("ERROR")
                 break
