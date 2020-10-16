@@ -32,11 +32,15 @@ def find_incorrect_keys(locked_ckt, key_space, oracle_output, dip):
     return incorrect_keys
 
 if __name__ == "__main__":
-    locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
+    # locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
+    print("Reading in locked circuit...")
+    locked_ckt = read_benchmark("benchmarks/c1335-RN320/c1355-RN320.v")
     key_space = KeySpace(locked_ckt)
     finder = DipFinder(locked_ckt)
 
-    oracle_ckt = read_benchmark("benchmarks/sample/sample_unlocked.v")
+    # oracle_ckt = read_benchmark("benchmarks/sample/sample_unlocked.v")
+    print("Reading in unlocked oracle...")
+    oracle_ckt = read_benchmark("benchmarks/c1335-RN320/c1355_oracle.v")
     runner = OracleRunner(oracle_ckt)
 
     while len(key_space) > 1:

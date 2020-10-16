@@ -25,6 +25,12 @@ class Parser():
                 self.__parse_gate2(tokenizer, "Or")
             elif token_type == TokenType.NOT:
                 self.__parse_gate1(tokenizer, "Not")
+            elif token_type == TokenType.NAND:
+                self.__parse_gate2(tokenizer, "Nand")
+            elif token_type == TokenType.XNOR:
+                self.__parse_gate2(tokenizer, "Xnor")
+            elif token_type == TokenType.NOR:
+                self.__parse_gate2(tokenizer, "Nor")
             else:
                 tokenizer.skip_token()
 
@@ -72,10 +78,8 @@ class Parser():
             elif tokenizer.get_token_type() == TokenType.COMMA:
                 tokenizer.skip_token() # comma
             elif tokenizer.get_token_type() == TokenType.LEFT_BRACKET:
-                # bus
                 self.__parse_bus(tokenizer)
             else:
-                # normal wire
                 self.__parse_single_wire(tokenizer)
 
     def __parse_bus(self, tokenizer):

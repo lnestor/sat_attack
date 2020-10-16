@@ -48,8 +48,14 @@ class CircuitBuilder():
             return Or(*input_logic)
         elif node.type == "Not":
             return Not(*input_logic)
+        elif node.type == "Nand":
+            return Not(And(*input_logic))
+        elif node.type == "Xnor":
+            return Not(Xor(*input_logic))
+        elif node.type == "Nor":
+            return Not(Or(*input_logic))
         else:
-            print("Unknown node type " + node.type)
+            print("Unknown node type " + str(node))
 
     def __key_name(self, name, key_suffix):
         if key_suffix is None:

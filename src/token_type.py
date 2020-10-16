@@ -2,25 +2,33 @@ from enum import Enum
 
 class TokenType(Enum):
     EOF = 0
+
     COMMA = 1
-    LEFT_BRACKET = 2
-    RIGHT_BRACKET = 3
+    COLON = 2
+    SEMICOLON = 3
     BACKTICK = 4
     DIVIDE_OPERATOR = 5
-    RIGHT_PAREN = 6
-    LEFT_PAREN = 7
-    IDENTIFIER = 8
-    TIMING = 9
-    SEMICOLON = 10
-    TIMESCALE = 11
-    MODULE = 12
-    INPUT = 13
-    OUTPUT = 14
-    WIRE = 15
-    AND = 16
-    XOR = 17
+
+    LEFT_BRACKET = 6
+    RIGHT_BRACKET = 7
+    RIGHT_PAREN = 8
+    LEFT_PAREN = 9
+
+    IDENTIFIER = 10
+    NUMBER = 11
+    TIMING = 12
+
+    TIMESCALE = 13
+    MODULE = 14
+    INPUT = 15
+    OUTPUT = 16
+    WIRE = 17
     ENDMODULE = 18
-    OR = 19
-    NOT = 20
-    NUMBER = 21
-    COLON = 22
+
+    AND = 19
+    XOR = 20
+    OR = 21
+    NOT = 22
+    NAND = 23
+    XNOR = 24
+    NOR = 25

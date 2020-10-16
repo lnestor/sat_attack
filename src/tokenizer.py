@@ -18,6 +18,9 @@ class Tokenizer():
         "xor": TokenType.XOR,
         "or": TokenType.OR,
         "not": TokenType.NOT,
+        "nand": TokenType.NAND,
+        "xnor": TokenType.XNOR,
+        "nor": TokenType.NOR,
         "endmodule": TokenType.ENDMODULE
     }
 
@@ -78,17 +81,18 @@ class Tokenizer():
                 elif next_char == ":":
                     self.token_type = TokenType.COLON
                     break
-                elif next_char.isalpha():
+                elif next_char.isalpha() or next_char == "_":
                     state = State.GATHERING_IDENTIFIER
                 elif next_char.isdigit():
                     state = State.GATHERING_DIGITS
                 elif not next_char.isspace():
                     # Do not error if we are reading a space
+                    print(next_char)
                     state = State.ERROR
             elif state == State.GATHERING_IDENTIFIER:
                 next_char = self.__peek()
 
-                if next_char.isalpha() or next_char.isdigit():
+                if next_char.isalpha() or next_char.isdigit() or next_char == "_":
                     self.token += self.fobj.read(1)
                 elif self.token in self.KEYWORDS:
                     self.token_type = self.KEYWORDS[self.token]
@@ -103,7 +107,9 @@ class Tokenizer():
                     self.token += self.fobj.read(2)
                     self.token_type = TokenType.TIMING
                     break
-                elif not next_char.isdigit():
+                elif next_char.isdigit():
+                    self.token += self.fobj.read(1)
+                else:
                     self.token_type = TokenType.NUMBER
                     break
             elif state == State.ERROR:
