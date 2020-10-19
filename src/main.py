@@ -1,3 +1,5 @@
+from z3 import *
+
 from circuit import Circuit
 from circuit_solver import solve_ckt
 from dip_finder import DipFinder
@@ -6,62 +8,93 @@ from tokenizer import Tokenizer
 from oracle_runner import OracleRunner
 from parser import Parser
 
-def read_benchmark(filename):
+def read_bench_nodes(filename):
     """
-    Reads in a circuit from a benchmark file.
+    Reads in the nodes of a circuit from a benchmakr file.
 
     filename: the name of the benchmark file
 
-    returns: object representation of the circuit
+    returns: the nodes of the circuit, the output names of the circuit
     """
     with open(filename) as f:
         t = Tokenizer(f)
         p = Parser()
         nodes, output_names = p.parse(t)
-        return Circuit(nodes, output_names)
+        return nodes, output_names
 
-def find_incorrect_keys(locked_ckt, key_space, oracle_output, dip):
-    incorrect_keys = []
-
-    for key_vector in key_space:
-        locked_output = solve_ckt(locked_ckt, {**dip, **key_vector})
-
-        if locked_output != oracle_output:
-            incorrect_keys.append(key_vector)
-
-    return incorrect_keys
+def read_bench_ckt(filename):
+    """
+    Reads in a circuit from a benchmark file.
+    filename: the name of the benchmark file
+    returns: object representation of the circuit
+    """
+    nodes, output_names = read_bench_nodes(filename)
+    return Circuit.from_nodes(nodes, output_names)
 
 if __name__ == "__main__":
-    # locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
     print("Reading in locked circuit...")
-    locked_ckt = read_benchmark("benchmarks/c1335-RN320/c1355-RN320.v")
-    key_space = KeySpace(locked_ckt)
-    finder = DipFinder(locked_ckt)
+    # locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
+    # locked_ckt = read_benchmark("benchmarks/c1335-RN320/c1355-RN320.v")
+    # locked_nodes, locked_output_names = read_bench_nodes("benchmarks/sample/sample_locked.v")
+    locked_nodes, locked_output_names = read_bench_nodes("benchmarks/c1335-RN320/c1355-RN320.v")
+    finder = DipFinder(locked_nodes, locked_output_names)
 
-    # oracle_ckt = read_benchmark("benchmarks/sample/sample_unlocked.v")
+    # key_space = KeySpace(locked_ckt)
+
     print("Reading in unlocked oracle...")
-    oracle_ckt = read_benchmark("benchmarks/c1335-RN320/c1355_oracle.v")
+    # oracle_ckt = read_bench_ckt("benchmarks/sample/sample_unlocked.v")
+    oracle_ckt = read_bench_ckt("benchmarks/c1335-RN320/c1355_oracle.v")
     runner = OracleRunner(oracle_ckt)
 
-    while len(key_space) > 1:
-        print("=== Iteration ===")
+    # finder.can_find_dip()
+    # print("=== ITERATION ===")
+    # dip = finder.find_dip()
+    # print("DIP: " + str(dip))
+
+    # oracle_output = runner.run(dip)
+    # print("ORACLE: " + str(oracle_output))
+
+    # finder.add_constraint(dip, oracle_output)
+
+    # finder.can_find_dip()
+    # print("=== ITERATION ===")
+    # dip = finder.find_dip()
+    # print("DIP: " + str(dip))
+
+    # oracle_output = runner.run(dip)
+    # print("ORACLE: " + str(oracle_output))
+
+    # finder.add_constraint(dip, oracle_output)
+
+    p_dip = None
+    dips = []
+    oracle_outputs = []
+    while finder.can_find_dip():
+        print("=== ITERATION ===")
         dip = finder.find_dip()
+        if dip == p_dip:
+            print("Equals")
+            break
+        p_dip = dip
         print("DIP: " + str(dip))
 
         oracle_output = runner.run(dip)
-        print("Oracle: " + str(oracle_output))
+        print("ORACLE: " + str(oracle_output))
 
-        incorrect_keys = find_incorrect_keys(locked_ckt, key_space, oracle_output, dip)
-        print("Incorrect keys: " + str(incorrect_keys))
-        print("")
+        finder.add_constraint(dip, oracle_output)
 
-        if len(incorrect_keys) == 0:
-            break
+        dips.append(dip)
+        oracle_outputs.append(oracle_output)
 
-        key_space.remove(incorrect_keys)
-        finder.mark_incorrect_keys(incorrect_keys)
+    s = Solver()
+    for i in range(len(dips)):
+        constraint_ckt = Circuit.specify_inputs(dips[i], locked_nodes, locked_output_names)
 
+        output_constraints = []
+        for name in constraint_ckt.outputs():
+            output_constraints.append(constraint_ckt.outputs()[name] == oracle_outputs[i][name])
 
-    print("=== Remaining keys ===")
-    for i in key_space:
-        print(i)
+        s.add(*output_constraints)
+
+    print(s.check())
+    print(s.model())
