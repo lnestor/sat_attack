@@ -33,49 +33,20 @@ def read_bench_ckt(filename):
 
 if __name__ == "__main__":
     print("Reading in locked circuit...")
-    # locked_ckt = read_benchmark("benchmarks/sample/sample_locked.v")
-    # locked_ckt = read_benchmark("benchmarks/c1335-RN320/c1355-RN320.v")
     # locked_nodes, locked_output_names = read_bench_nodes("benchmarks/sample/sample_locked.v")
     locked_nodes, locked_output_names = read_bench_nodes("benchmarks/c1335-RN320/c1355-RN320.v")
     finder = DipFinder(locked_nodes, locked_output_names)
 
-    # key_space = KeySpace(locked_ckt)
-
     print("Reading in unlocked oracle...")
     # oracle_ckt = read_bench_ckt("benchmarks/sample/sample_unlocked.v")
-    oracle_ckt = read_bench_ckt("benchmarks/c1335-RN320/c1355_oracle.v")
+    oracle_ckt = read_bench_ckt("benchmarks/c1335-RN320/c1355-oracle.v")
     runner = OracleRunner(oracle_ckt)
 
-    # finder.can_find_dip()
-    # print("=== ITERATION ===")
-    # dip = finder.find_dip()
-    # print("DIP: " + str(dip))
-
-    # oracle_output = runner.run(dip)
-    # print("ORACLE: " + str(oracle_output))
-
-    # finder.add_constraint(dip, oracle_output)
-
-    # finder.can_find_dip()
-    # print("=== ITERATION ===")
-    # dip = finder.find_dip()
-    # print("DIP: " + str(dip))
-
-    # oracle_output = runner.run(dip)
-    # print("ORACLE: " + str(oracle_output))
-
-    # finder.add_constraint(dip, oracle_output)
-
-    p_dip = None
     dips = []
     oracle_outputs = []
     while finder.can_find_dip():
         print("=== ITERATION ===")
         dip = finder.find_dip()
-        if dip == p_dip:
-            print("Equals")
-            break
-        p_dip = dip
         print("DIP: " + str(dip))
 
         oracle_output = runner.run(dip)
