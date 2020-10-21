@@ -10,6 +10,7 @@ class SatAttack:
     def __init__(self, locked_filename, unlocked_filename):
         self.locked_filename = locked_filename
         self.unlocked_filename = unlocked_filename
+        self.iterations = 0
 
     def run(self):
         print("Reading in locked circuit...")
@@ -28,6 +29,7 @@ class SatAttack:
             finder.add_constraint(dip, oracle_output)
 
             oracle_io_pairs.append((dip, oracle_output))
+            self.iterations += 1
 
         key = self.find_key(oracle_io_pairs)
         self.check_key(key)

@@ -16,5 +16,6 @@ if __name__ == "__main__":
     attack.run()
     end = time.time()
 
+    print("\nIterations: %i" % (attack.iterations))
     print("Elapsed time: %.3fs" % (end - start))
 
