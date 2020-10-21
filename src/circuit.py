@@ -16,13 +16,14 @@ class Circuit:
     @classmethod
     def specify_inputs(cls, inputs, nodes, output_names, key_suffix = ""):
         builder = CircuitBuilder()
-        z3_ckt, _ = builder.build(nodes, output_names, key_suffix, inputs)
-        return cls(z3_ckt, inputs.keys())
+        z3_ckt, inputs = builder.build(nodes, output_names, key_suffix, inputs)
+        return cls(z3_ckt, inputs)
 
     def __init__(self, z3_ckt, inputs):
         self.z3_ckt = z3_ckt
         self.inputs = inputs
         self._primary_inputs = None
+        self._key_inputs = None
 
     def outputs(self):
         return self.z3_ckt
@@ -34,4 +35,13 @@ class Circuit:
             # find primary inputs
             self._primary_inputs = list(filter(lambda x: "key" not in x, self.inputs))
             return self._primary_inputs
+
+    def key_inputs(self):
+        if self._key_inputs is not None:
+            return self._key_inputs
+        else:
+            # find primary inputs
+            self._key_inputs = list(filter(lambda x: "key" in x, self.inputs))
+            return self._key_inputs
+
 

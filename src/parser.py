@@ -18,19 +18,19 @@ class Parser():
             elif token_type == TokenType.WIRE:
                 self.__parse_wires(tokenizer)
             elif token_type == TokenType.AND:
-                self.__parse_gate2(tokenizer, "And")
+                self.__parse_gate(tokenizer, "And")
             elif token_type == TokenType.XOR:
-                self.__parse_gate2(tokenizer, "Xor")
+                self.__parse_gate(tokenizer, "Xor")
             elif token_type == TokenType.OR:
-                self.__parse_gate2(tokenizer, "Or")
+                self.__parse_gate(tokenizer, "Or")
             elif token_type == TokenType.NOT:
-                self.__parse_gate1(tokenizer, "Not")
+                self.__parse_gate(tokenizer, "Not")
             elif token_type == TokenType.NAND:
-                self.__parse_gate2(tokenizer, "Nand")
+                self.__parse_gate(tokenizer, "Nand")
             elif token_type == TokenType.XNOR:
-                self.__parse_gate2(tokenizer, "Xnor")
+                self.__parse_gate(tokenizer, "Xnor")
             elif token_type == TokenType.NOR:
-                self.__parse_gate2(tokenizer, "Nor")
+                self.__parse_gate(tokenizer, "Nor")
             else:
                 tokenizer.skip_token()
 
@@ -100,6 +100,32 @@ class Parser():
     def __parse_single_wire(self, tokenizer):
         self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], "Wire")
         tokenizer.skip_token()
+
+    def __parse_gate(self, tokenizer, gate_type):
+        tokenizer.skip_token() # gate token
+        tokenizer.skip_token() # gate identifier token
+        tokenizer.skip_token() # left paren token
+
+        output_name = self.__parse_id(tokenizer)
+        tokenizer.skip_token() # comma
+
+        inputs = []
+        while True:
+            if tokenizer.get_token_type() == TokenType.RIGHT_PAREN:
+                tokenizer.skip_token() # right paren
+                break
+            elif tokenizer.get_token_type() == TokenType.IDENTIFIER:
+                input_name = self.__parse_id(tokenizer)
+                inputs.append(input_name)
+            elif tokenizer.get_token_type() == TokenType.COMMA:
+                tokenizer.skip_token() # comma
+            else:
+                print("Error: unexpected token type " + tokenizer.get_token_type())
+
+        tokenizer.skip_token() # semicolon
+        self.nodes[output_name].inputs = inputs
+        self.nodes[output_name].type = gate_type
+
 
     def __parse_gate1(self, tokenizer, gate_type):
         tokenizer.skip_token() # gate token

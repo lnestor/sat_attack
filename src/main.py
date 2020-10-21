@@ -3,7 +3,6 @@ from z3 import *
 from circuit import Circuit
 from circuit_solver import solve_ckt
 from dip_finder import DipFinder
-from key_space import KeySpace
 from tokenizer import Tokenizer
 from oracle_runner import OracleRunner
 from parser import Parser
@@ -45,21 +44,25 @@ if __name__ == "__main__":
     dips = []
     oracle_outputs = []
     while finder.can_find_dip():
-        print("=== ITERATION ===")
+        # print("=== ITERATION ===")
         dip = finder.find_dip()
-        print("DIP: " + str(dip))
+        # print("DIP: " + str(dip))
 
         oracle_output = runner.run(dip)
-        print("ORACLE: " + str(oracle_output))
+        # print("ORACLE: " + str(oracle_output))
 
         finder.add_constraint(dip, oracle_output)
 
         dips.append(dip)
         oracle_outputs.append(oracle_output)
 
+    z3.set_param("model.completion", True)
     s = Solver()
+    key_inputs = None
     for i in range(len(dips)):
         constraint_ckt = Circuit.specify_inputs(dips[i], locked_nodes, locked_output_names)
+
+        key_inputs = constraint_ckt.key_inputs()
 
         output_constraints = []
         for name in constraint_ckt.outputs():
@@ -67,5 +70,20 @@ if __name__ == "__main__":
 
         s.add(*output_constraints)
 
-    print(s.check())
-    print(s.model())
+    s.check()
+    model = s.model()
+
+    keys = {}
+    for input in model:
+        if str(input) in key_inputs:
+            keys[str(input)] = model[input]
+
+    locked_ckt = Circuit.specify_inputs(keys, locked_nodes, locked_output_names)
+    miter = Circuit.miter(locked_ckt, oracle_ckt)
+    s2 = Solver()
+    s2.add(miter == 1)
+
+    print(s2.check())
+    print(s2.model())
+
+    # miter circuit with oracle

@@ -6,10 +6,10 @@ class CircuitBuilder():
         diff = Or(*output_xors)
         return {"diff": diff}
 
-    def build(self, nodes, output_names, key_suffix = "", inputs = None):
+    def build(self, nodes, output_names, key_suffix = "", spec_inputs = None):
         self.visited_nodes = []
         self.inputs = []
-        self.specified_inputs = inputs
+        self.specified_inputs = spec_inputs
         outputs = {}
 
         for name in output_names:
@@ -21,7 +21,6 @@ class CircuitBuilder():
         node = nodes[name]
 
         if name in self.visited_nodes:
-        # if node.z3_repr is not None
             return node.z3_repr
 
         self.visited_nodes.append(name)
