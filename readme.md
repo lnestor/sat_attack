@@ -1,8 +1,6 @@
 # To Work On
 
- - Add command line arguments
  - Count iterations
- - Time runs
  - Tests: add automated tests - lol
  - Add function to extract from model
   - dip finder uses this be we want that functionality other places

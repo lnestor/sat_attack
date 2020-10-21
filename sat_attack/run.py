@@ -1,4 +1,6 @@
 import argparse
+import time
+
 import sat_attack
 
 if __name__ == "__main__":
@@ -9,5 +11,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     attack = sat_attack.SatAttack(args.locked_ckt, args.oracle)
+
+    start = time.time()
     attack.run()
+    end = time.time()
+
+    print("Elapsed time: %.3fs" % (end - start))
 
