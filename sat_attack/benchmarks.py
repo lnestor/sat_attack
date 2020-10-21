@@ -22,3 +22,21 @@ def read_ckt(filename):
     """
     nodes, output_names = read_nodes(filename)
     return circuit.Circuit.from_nodes(nodes, output_names)
+
+def get_expected_key(filename):
+    key = {}
+
+    with open(filename) as f:
+        for line in f.readlines():
+            if "KeyGate" in line:
+                tokens = line.split()
+
+                key_name = tokens[2][0:-1]
+                key_bit = tokens[0] == "xnor"
+
+                if "NOT" in tokens[1]:
+                    key_bit = not key_bit
+
+                key[key_name] = key_bit
+
+    return key
