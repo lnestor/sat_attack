@@ -56,8 +56,12 @@ class CircuitBuilder():
 
     def _build_key(self, node, name, key_suffix):
         key_name = name + key_suffix
-        self.inputs.append(key_name)
-        node.z3_repr = Bool(key_name)
+
+        if self.specified_inputs is not None and name in self.specified_inputs:
+            node.z3_repr = self.specified_inputs[key_name]
+        else:
+            self.inputs.append(key_name)
+            node.z3_repr = Bool(key_name)
 
     def _build_input(self, node, name):
         if self.specified_inputs is not None and name in self.specified_inputs:

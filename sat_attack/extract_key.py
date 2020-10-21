@@ -1,5 +1,5 @@
 if __name__ == "__main__":
-    filename = "benchmarks/c1335-RN320/c1355-RN320.v"
+    filename = "benchmarks/c1355-RN320/c1355-RN320.v"
 
     key_string = ""
     with open(filename) as f:

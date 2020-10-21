@@ -1,5 +1,7 @@
 from z3 import *
+
 from circuit import Circuit
+import sat_model
 
 class DipFinder:
     def __init__(self, nodes, output_names):
@@ -18,7 +20,8 @@ class DipFinder:
 
     def find_dip(self):
         model = self.solver.model()
-        return self._extract_dip_from_model(model)
+        primary_inputs = self.miter_ckt.primary_inputs()
+        return sat_model.extract_from_model(model, primary_inputs, completion=True)
 
     def add_constraint(self, dip, outputs):
         constraint_ckt0 = Circuit.specify_inputs(dip, self.nodes, self.output_names, key_suffix = "__ckt0")
@@ -33,17 +36,3 @@ class DipFinder:
 
         self.solver.add(*output_constraints0)
         self.solver.add(*output_constraints1)
-
-    def _extract_dip_from_model(self, model):
-        primary_inputs = self.miter_ckt.primary_inputs()
-        dip = {}
-
-        for input in model:
-            if str(input) in primary_inputs:
-                dip[str(input)] = model[input]
-
-        remaining_inputs = [x for x in primary_inputs if x not in dip.keys()]
-        for input in remaining_inputs:
-            dip[input] = False
-
-        return dip
