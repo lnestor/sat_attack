@@ -82,6 +82,7 @@ class CircuitBuilder():
             node.z3_repr = Not(Or(*fanin))
         else:
             print("Unknown node type " + str(node))
+            raise
 
     def _build_key(self, node, name, key_suffix):
         """

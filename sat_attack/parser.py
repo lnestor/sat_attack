@@ -157,6 +157,7 @@ class Parser():
                 tokenizer.skip_token() # comma
             else:
                 print("Error: unexpected token type " + tokenizer.get_token_type())
+                raise
 
         tokenizer.skip_token() # semicolon
         self.nodes[output_name].inputs = inputs

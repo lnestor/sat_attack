@@ -62,6 +62,4 @@ A description of the project structure and what each file contains is below.
 
 * Add automated tests
 * Add more benchmarks and support features necessary
-* Add documentation
 * Support multiple Verilog modules because Anti-SAT benchmarks uses them
-* Improve error messaging

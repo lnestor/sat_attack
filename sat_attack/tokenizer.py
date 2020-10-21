@@ -124,7 +124,7 @@ class Tokenizer():
                     self.token_type = TokenType.NUMBER
                     break
             elif state == State.ERROR:
-                print("ERROR")
+                print("Tokenizing error: unknown character " + next_char)
                 break
 
     def __peek(self):
