@@ -32,7 +32,6 @@ class Circuit:
         if self._primary_inputs is not None:
             return self._primary_inputs
         else:
-            # find primary inputs
             self._primary_inputs = list(filter(lambda x: "key" not in x, self.inputs))
             return self._primary_inputs
 
@@ -40,7 +39,6 @@ class Circuit:
         if self._key_inputs is not None:
             return self._key_inputs
         else:
-            # find primary inputs
             self._key_inputs = list(filter(lambda x: "key" in x, self.inputs))
             return self._key_inputs
 

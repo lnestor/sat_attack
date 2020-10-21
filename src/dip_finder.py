@@ -46,5 +46,4 @@ class DipFinder:
         for input in remaining_inputs:
             dip[input] = False
 
-
         return dip
