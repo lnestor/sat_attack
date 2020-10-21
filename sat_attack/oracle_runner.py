@@ -5,4 +5,5 @@ class OracleRunner:
         self.ckt = ckt
 
     def run(self, inputs):
+        """Run a set of inputs against the oracle"""
         return solve_ckt(self.ckt, inputs)

@@ -4,6 +4,9 @@ def solve_ckt(ckt, inputs):
     """
     Solves for the outputs of a circuit. This function requires that ALL inputs are
     passed in or else it is likely that the circuit outputs will all be True.
+
+    ckt: the circuit object
+    inputs: the inputs to the circuit
     """
     s = Solver()
 

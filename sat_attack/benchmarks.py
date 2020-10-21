@@ -5,9 +5,7 @@ import parser
 def read_nodes(filename):
     """
     Reads in the nodes of a circuit from a benchmakr file.
-
     filename: the name of the benchmark file
-
     returns: the nodes of the circuit, the output names of the circuit
     """
     with open(filename) as f:

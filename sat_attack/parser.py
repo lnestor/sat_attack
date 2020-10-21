@@ -3,6 +3,12 @@ from token_type import TokenType
 
 class Parser():
     def parse(self, tokenizer):
+        """
+        Parses circuit nodes given a list of tokens from an input verilog file.
+
+        tokenizer: Tokenizer object for the Verilog input file
+        returns: the nodes of the circuit, the names of the output nodes
+        """
         self.outputs = []
         self.nodes = {}
 
@@ -37,6 +43,11 @@ class Parser():
         return self.nodes, self.outputs
 
     def _parse_inputs(self, tokenizer):
+        """
+        Parses input nodes, both key and primary inputs
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         tokenizer.skip_token() # input token
 
         while True:
@@ -55,6 +66,11 @@ class Parser():
                 tokenizer.skip_token()
 
     def _parse_outputs(self, tokenizer):
+        """
+        Parses output nodes
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         tokenizer.skip_token() # output token
 
         while True:
@@ -69,6 +85,11 @@ class Parser():
                 tokenizer.skip_token()
 
     def _parse_wires(self, tokenizer):
+        """
+        Parses wire nodes
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         tokenizer.skip_token() # wire token
 
         while True:
@@ -83,6 +104,11 @@ class Parser():
                 self._parse_single_wire(tokenizer)
 
     def _parse_bus(self, tokenizer):
+        """
+        Parses wire nodes that are buses
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         tokenizer.skip_token() # left bracket
         low_number = tokenizer.int_value()
         tokenizer.skip_token() # low number
@@ -98,10 +124,20 @@ class Parser():
             self.nodes[wire_name] = Node(wire_name, [], "Wire")
 
     def _parse_single_wire(self, tokenizer):
+        """
+        Parses a single wire node
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         self.nodes[tokenizer.id_value()] = Node(tokenizer.id_value(), [], "Wire")
         tokenizer.skip_token()
 
     def _parse_gate(self, tokenizer, gate_type):
+        """
+        Parses a gate node
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
         tokenizer.skip_token() # gate token
         tokenizer.skip_token() # gate identifier token
         tokenizer.skip_token() # left paren token
@@ -127,6 +163,11 @@ class Parser():
         self.nodes[output_name].type = gate_type
 
     def _parse_id(self, tokenizer):
+        """
+        Parses an identifier name
+
+        tokenizer: the Tokenizer object with the Verilog input
+        """
         id_name = tokenizer.id_value()
         tokenizer.skip_token() # id
 

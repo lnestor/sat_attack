@@ -8,6 +8,12 @@ class State(Enum):
     ERROR = 10
 
 class Tokenizer():
+    """
+    Splits input files into chunks of characters called 'tokens' that
+    are easier to manipulate and parse than text. A token can be many things,
+    such as a keyword (module, and, etc.) or a comma, etc. Any non-separable,
+    meaningful chunk is a token.
+    """
     KEYWORDS = {
         "timescale": TokenType.TIMESCALE,
         "module": TokenType.MODULE,
@@ -29,18 +35,23 @@ class Tokenizer():
         self.__find_token()
 
     def get_token_type(self):
+        """Returns the type of the current token"""
         return self.token_type
 
     def skip_token(self):
+        """Finds the next token"""
         self.__find_token()
 
     def id_value(self):
+        """Returns the identifier value for the current token"""
         return self.token
 
     def int_value(self):
+        """Returns an integer of the current token"""
         return int(self.token)
 
     def __find_token(self):
+        """Find the next token"""
         state = State.START
         self.token = ""
 
@@ -117,6 +128,7 @@ class Tokenizer():
                 break
 
     def __peek(self):
+        """Peek at the next character in the input file"""
         pos = self.fobj.tell()
         c = self.fobj.read(1)
         self.fobj.seek(pos)
