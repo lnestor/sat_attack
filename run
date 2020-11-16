@@ -1,0 +1,25 @@
+#!/bin/bash
+
+python3 sat_attack/run.py benchmarks/c1355-CS320/c1355-CS320.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS320/c1355-CS320.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS320/c1355-CS320.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS320/c1355-CS320.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS320/c1355-CS320.v benchmarks/c1355-SL320/c1355-oracle.v
+
+python3 sat_attack/run.py benchmarks/c1355-CS640/c1355-CS640.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS640/c1355-CS640.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS640/c1355-CS640.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS640/c1355-CS640.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS640/c1355-CS640.v benchmarks/c1355-SL320/c1355-oracle.v
+
+python3 sat_attack/run.py benchmarks/c1355-CS1280/c1355-CS1280.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS1280/c1355-CS1280.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS1280/c1355-CS1280.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS1280/c1355-CS1280.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS1280/c1355-CS1280.v benchmarks/c1355-SL320/c1355-oracle.v
+
+python3 sat_attack/run.py benchmarks/c1355-CS2560/c1355-CS2560.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS2560/c1355-CS2560.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS2560/c1355-CS2560.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS2560/c1355-CS2560.v benchmarks/c1355-SL320/c1355-oracle.v
+python3 sat_attack/run.py benchmarks/c1355-CS2560/c1355-CS2560.v benchmarks/c1355-SL320/c1355-oracle.v
