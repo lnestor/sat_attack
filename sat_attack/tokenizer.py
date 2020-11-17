@@ -24,6 +24,7 @@ class Tokenizer():
         "xor": TokenType.XOR,
         "or": TokenType.OR,
         "not": TokenType.NOT,
+        "buf": TokenType.BUFFER,
         "nand": TokenType.NAND,
         "xnor": TokenType.XNOR,
         "nor": TokenType.NOR,

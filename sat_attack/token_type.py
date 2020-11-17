@@ -32,3 +32,4 @@ class TokenType(Enum):
     NAND = 23
     XNOR = 24
     NOR = 25
+    BUFFER = 26

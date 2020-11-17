@@ -80,6 +80,8 @@ class CircuitBuilder():
             node.z3_repr = Not(Xor(*fanin))
         elif node.type == "Nor":
             node.z3_repr = Not(Or(*fanin))
+        elif node.type == "Buffer":
+            node.z3_repr = Not(Not(*fanin))
         else:
             print("Unknown node type " + str(node))
             raise

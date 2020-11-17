@@ -1,22 +1,3 @@
-// Verilog
-// c1908
-// Ninputs 33
-// Noutputs 25
-// NtotalGates 880
-// NOT1 277
-// NAND2 347
-// BUFF1 162
-// AND2 30
-// AND3 12
-// NAND4 2
-// NAND3 1
-// NAND8 3
-// AND4 2
-// NAND5 24
-// AND5 16
-// AND8 3
-// NOR2 1
-
 module c1908 (N1,N4,N7,N10,N13,N16,N19,N22,N25,N28,
               N31,N34,N37,N40,N43,N46,N49,N53,N56,N60,
               N63,N66,N69,N72,N76,N79,N82,N85,N88,N91,

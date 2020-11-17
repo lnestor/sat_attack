@@ -37,6 +37,8 @@ class Parser():
                 self._parse_gate(tokenizer, "Xnor")
             elif token_type == TokenType.NOR:
                 self._parse_gate(tokenizer, "Nor")
+            elif token_type == TokenType.BUFFER:
+                self._parse_gate(tokenizer, "Buffer")
             else:
                 tokenizer.skip_token()
 
