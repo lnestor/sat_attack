@@ -1,8 +1,11 @@
+import statistics
+import time
 import z3
 
 import benchmarks
 import circuit
 import dip_finder
+import iteration_timing
 import sat_model
 import oracle_runner
 
@@ -14,8 +17,12 @@ class SatAttack:
         self.unlocked_filename = unlocked_filename
         self.iterations = 0
 
-    def run(self):
+    def run(self, timeout, detailed):
         """Run the SAT attack."""
+
+        start_time = time.time()
+        timed_out = False
+
         print("Reading in locked circuit...")
         self.nodes, self.output_names = benchmarks.read_nodes(self.locked_filename)
 
@@ -26,32 +33,62 @@ class SatAttack:
         primary_inputs = [node.name for node in self.nodes.values() if node.type == "Primary Input"]
 
         print("\n# Primary Inputs: %i" % (len(primary_inputs)))
-        print("# Key Inputs: %i" % (len(key_inputs)))
+        print("# Key Inputs: %i\n" % (len(key_inputs)))
 
         finder = dip_finder.DipFinder(self.nodes, self.output_names)
         runner = oracle_runner.OracleRunner(self.oracle_ckt)
 
         oracle_io_pairs = []
+        timings = []
         while finder.can_find_dip():
-            dip = finder.find_dip()
-            oracle_output = runner.run(dip)
-            finder.add_constraint(dip, oracle_output)
+            timing = iteration_timing.IterationTiming()
+            timings.append(timing)
 
+            timing.start_sat()
+            dip = finder.find_dip()
+            timing.end_sat()
+
+            timing.start_oracle()
+            oracle_output = runner.run(dip)
+            timing.end_oracle()
+
+            timing.start_constraint()
+            finder.add_constraint(dip, oracle_output)
+            timing.end_constraint()
+
+            timing.end_iteration()
             oracle_io_pairs.append((dip, oracle_output))
             self.iterations += 1
 
+            if detailed:
+                timing.print(self.iterations)
+
+            if timeout is not None and time.time() - start_time > timeout:
+                timed_out = True
+                break
+
+        if timed_out:
+            print("\nSAT attack ran too long... timed out")
+            print("Timeout was %is, ran for %fs\n" % (timeout, time.time() - start_time))
+
+        iteration_times = [t.total_time for t in timings]
+        print("# Iterations: %i" % (self.iterations))
+        print("Average time/iteration: %f" % (sum(iteration_times) / len(iteration_times)))
+        print("Stdev of time/iteration: %f" % (statistics.stdev(iteration_times)))
+
+        print("\nFinding key...")
         key = self._find_key(oracle_io_pairs, key_inputs)
         expected_key = benchmarks.get_expected_key(self.locked_filename)
 
         print("\nExpected key: %s" % (self._key_string(expected_key)))
         print("Found key:    %s" % (self._key_string(key)))
 
-        print("\nChecking for circuit equivalence...\n")
+        print("\nChecking for circuit equivalence...")
         self._check_key(key)
         if self._check_key(key):
-            print("Locked and unlocked circuits match")
+            print("Locked and unlocked circuits match\n")
         else:
-            print("Key found does not match oracle")
+            print("Key found does not match oracle\n")
 
     def _find_key(self, oracle_io_pairs, key_names):
         """
