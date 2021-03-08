@@ -1,0 +1,1139 @@
+
+------------- c1355 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 41
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.198465
+  Time SAT solving: 0.008057
+  Time running DIP on oracle: 0.020551
+  Time adding new constraint: 0.169845
+
+Iteration 2:
+  Total Time: 0.221534
+  Time SAT solving: 0.006164
+  Time running DIP on oracle: 0.031230
+  Time adding new constraint: 0.184129
+
+Iteration 3:
+  Total Time: 0.185944
+  Time SAT solving: 0.007808
+  Time running DIP on oracle: 0.019114
+  Time adding new constraint: 0.159011
+
+Iteration 4:
+  Total Time: 0.228511
+  Time SAT solving: 0.008677
+  Time running DIP on oracle: 0.023245
+  Time adding new constraint: 0.196576
+
+Iteration 5:
+  Total Time: 0.196360
+  Time SAT solving: 0.007988
+  Time running DIP on oracle: 0.022130
+  Time adding new constraint: 0.166231
+
+Iteration 6:
+  Total Time: 0.202245
+  Time SAT solving: 0.007719
+  Time running DIP on oracle: 0.023878
+  Time adding new constraint: 0.170639
+
+Iteration 7:
+  Total Time: 0.213593
+  Time SAT solving: 0.009329
+  Time running DIP on oracle: 0.025067
+  Time adding new constraint: 0.179185
+
+Iteration 8:
+  Total Time: 0.195434
+  Time SAT solving: 0.007961
+  Time running DIP on oracle: 0.023085
+  Time adding new constraint: 0.164379
+
+Iteration 9:
+  Total Time: 0.186874
+  Time SAT solving: 0.007641
+  Time running DIP on oracle: 0.019022
+  Time adding new constraint: 0.160203
+
+Iteration 10:
+  Total Time: 0.185852
+  Time SAT solving: 0.007672
+  Time running DIP on oracle: 0.019364
+  Time adding new constraint: 0.158809
+
+Iteration 11:
+  Total Time: 0.181255
+  Time SAT solving: 0.006361
+  Time running DIP on oracle: 0.018727
+  Time adding new constraint: 0.156157
+
+Iteration 12:
+  Total Time: 0.184483
+  Time SAT solving: 0.008224
+  Time running DIP on oracle: 0.018954
+  Time adding new constraint: 0.157295
+
+Iteration 13:
+  Total Time: 0.185692
+  Time SAT solving: 0.007885
+  Time running DIP on oracle: 0.019526
+  Time adding new constraint: 0.158272
+
+Iteration 14:
+  Total Time: 0.185249
+  Time SAT solving: 0.007692
+  Time running DIP on oracle: 0.019300
+  Time adding new constraint: 0.158247
+
+Iteration 15:
+  Total Time: 0.186726
+  Time SAT solving: 0.007909
+  Time running DIP on oracle: 0.019354
+  Time adding new constraint: 0.159453
+
+Iteration 16:
+  Total Time: 0.194981
+  Time SAT solving: 0.008336
+  Time running DIP on oracle: 0.019147
+  Time adding new constraint: 0.167489
+
+Iteration 17:
+  Total Time: 0.193543
+  Time SAT solving: 0.008112
+  Time running DIP on oracle: 0.019856
+  Time adding new constraint: 0.165564
+
+Iteration 18:
+  Total Time: 0.197381
+  Time SAT solving: 0.008562
+  Time running DIP on oracle: 0.020104
+  Time adding new constraint: 0.168699
+
+Iteration 19:
+  Total Time: 0.194792
+  Time SAT solving: 0.008490
+  Time running DIP on oracle: 0.021286
+  Time adding new constraint: 0.164998
+
+Iteration 20:
+  Total Time: 0.187079
+  Time SAT solving: 0.008746
+  Time running DIP on oracle: 0.019150
+  Time adding new constraint: 0.159171
+
+Iteration 21:
+  Total Time: 0.186944
+  Time SAT solving: 0.008018
+  Time running DIP on oracle: 0.020690
+  Time adding new constraint: 0.158227
+
+Iteration 22:
+  Total Time: 0.189245
+  Time SAT solving: 0.008279
+  Time running DIP on oracle: 0.019065
+  Time adding new constraint: 0.161891
+
+Iteration 23:
+  Total Time: 0.187257
+  Time SAT solving: 0.008368
+  Time running DIP on oracle: 0.018782
+  Time adding new constraint: 0.160095
+
+Iteration 24:
+  Total Time: 0.184550
+  Time SAT solving: 0.008291
+  Time running DIP on oracle: 0.018977
+  Time adding new constraint: 0.157271
+
+Iteration 25:
+  Total Time: 0.186828
+  Time SAT solving: 0.007840
+  Time running DIP on oracle: 0.018861
+  Time adding new constraint: 0.160116
+
+Iteration 26:
+  Total Time: 0.187012
+  Time SAT solving: 0.007815
+  Time running DIP on oracle: 0.019208
+  Time adding new constraint: 0.159979
+
+Iteration 27:
+  Total Time: 0.183395
+  Time SAT solving: 0.007343
+  Time running DIP on oracle: 0.019769
+  Time adding new constraint: 0.156274
+
+Iteration 28:
+  Total Time: 0.186318
+  Time SAT solving: 0.008038
+  Time running DIP on oracle: 0.019443
+  Time adding new constraint: 0.158826
+
+Iteration 29:
+  Total Time: 0.186561
+  Time SAT solving: 0.008187
+  Time running DIP on oracle: 0.019298
+  Time adding new constraint: 0.159064
+
+Iteration 30:
+  Total Time: 0.202512
+  Time SAT solving: 0.009191
+  Time running DIP on oracle: 0.018950
+  Time adding new constraint: 0.174363
+
+# Iterations: 30
+Average time/iteration: 0.192887
+Stdev of time/iteration: 0.011284
+
+Finding key...
+
+Expected key: 10011111001010010110010101000000
+Found key:    10011111001010010110010101000000
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 9.715s
+
+------------- c1908 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 33
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.232896
+  Time SAT solving: 0.005497
+  Time running DIP on oracle: 0.016987
+  Time adding new constraint: 0.210400
+
+Iteration 2:
+  Total Time: 0.231482
+  Time SAT solving: 0.006027
+  Time running DIP on oracle: 0.017484
+  Time adding new constraint: 0.207962
+
+Iteration 3:
+  Total Time: 0.232556
+  Time SAT solving: 0.006628
+  Time running DIP on oracle: 0.015875
+  Time adding new constraint: 0.210047
+
+Iteration 4:
+  Total Time: 0.232480
+  Time SAT solving: 0.006615
+  Time running DIP on oracle: 0.017004
+  Time adding new constraint: 0.208852
+
+Iteration 5:
+  Total Time: 0.229404
+  Time SAT solving: 0.006701
+  Time running DIP on oracle: 0.016087
+  Time adding new constraint: 0.206608
+
+Iteration 6:
+  Total Time: 0.229566
+  Time SAT solving: 0.006198
+  Time running DIP on oracle: 0.015923
+  Time adding new constraint: 0.207437
+
+Iteration 7:
+  Total Time: 0.235791
+  Time SAT solving: 0.006278
+  Time running DIP on oracle: 0.015685
+  Time adding new constraint: 0.213816
+
+Iteration 8:
+  Total Time: 0.275136
+  Time SAT solving: 0.008163
+  Time running DIP on oracle: 0.017383
+  Time adding new constraint: 0.249580
+
+Iteration 9:
+  Total Time: 0.304260
+  Time SAT solving: 0.008763
+  Time running DIP on oracle: 0.020932
+  Time adding new constraint: 0.274553
+
+Iteration 10:
+  Total Time: 0.237035
+  Time SAT solving: 0.006791
+  Time running DIP on oracle: 0.016952
+  Time adding new constraint: 0.213281
+
+Iteration 11:
+  Total Time: 0.242389
+  Time SAT solving: 0.006906
+  Time running DIP on oracle: 0.020693
+  Time adding new constraint: 0.214780
+
+Iteration 12:
+  Total Time: 0.232330
+  Time SAT solving: 0.006038
+  Time running DIP on oracle: 0.015574
+  Time adding new constraint: 0.210708
+
+# Iterations: 12
+Average time/iteration: 0.242944
+Stdev of time/iteration: 0.022976
+
+Finding key...
+
+Expected key: 10001010100001001100111100010100
+Found key:    10001010100001001100111100010100
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 6.315s
+
+------------- c2670 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 233
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.452921
+  Time SAT solving: 0.018709
+  Time running DIP on oracle: 0.062004
+  Time adding new constraint: 0.372192
+
+Iteration 2:
+  Total Time: 0.446800
+  Time SAT solving: 0.003957
+  Time running DIP on oracle: 0.054601
+  Time adding new constraint: 0.388232
+
+Iteration 3:
+  Total Time: 0.426583
+  Time SAT solving: 0.004532
+  Time running DIP on oracle: 0.055819
+  Time adding new constraint: 0.366225
+
+Iteration 4:
+  Total Time: 0.398707
+  Time SAT solving: 0.004302
+  Time running DIP on oracle: 0.051431
+  Time adding new constraint: 0.342964
+
+Iteration 5:
+  Total Time: 0.381584
+  Time SAT solving: 0.008101
+  Time running DIP on oracle: 0.055511
+  Time adding new constraint: 0.317961
+
+Iteration 6:
+  Total Time: 0.403800
+  Time SAT solving: 0.007810
+  Time running DIP on oracle: 0.051899
+  Time adding new constraint: 0.344082
+
+Iteration 7:
+  Total Time: 0.444941
+  Time SAT solving: 0.006611
+  Time running DIP on oracle: 0.061550
+  Time adding new constraint: 0.376773
+
+Iteration 8:
+  Total Time: 0.412179
+  Time SAT solving: 0.007413
+  Time running DIP on oracle: 0.056332
+  Time adding new constraint: 0.348424
+
+Iteration 9:
+  Total Time: 0.387105
+  Time SAT solving: 0.009617
+  Time running DIP on oracle: 0.050236
+  Time adding new constraint: 0.327244
+
+Iteration 10:
+  Total Time: 0.467587
+  Time SAT solving: 0.008256
+  Time running DIP on oracle: 0.050942
+  Time adding new constraint: 0.408380
+
+Iteration 11:
+  Total Time: 0.411436
+  Time SAT solving: 0.008098
+  Time running DIP on oracle: 0.060182
+  Time adding new constraint: 0.343146
+
+Iteration 12:
+  Total Time: 0.418249
+  Time SAT solving: 0.010125
+  Time running DIP on oracle: 0.074793
+  Time adding new constraint: 0.333323
+
+Iteration 13:
+  Total Time: 0.407429
+  Time SAT solving: 0.008484
+  Time running DIP on oracle: 0.054109
+  Time adding new constraint: 0.344827
+
+Iteration 14:
+  Total Time: 0.405019
+  Time SAT solving: 0.008253
+  Time running DIP on oracle: 0.051778
+  Time adding new constraint: 0.344982
+
+Iteration 15:
+  Total Time: 0.384591
+  Time SAT solving: 0.009538
+  Time running DIP on oracle: 0.054414
+  Time adding new constraint: 0.320631
+
+Iteration 16:
+  Total Time: 0.398505
+  Time SAT solving: 0.008847
+  Time running DIP on oracle: 0.051680
+  Time adding new constraint: 0.337969
+
+Iteration 17:
+  Total Time: 0.402399
+  Time SAT solving: 0.008913
+  Time running DIP on oracle: 0.055025
+  Time adding new constraint: 0.338451
+
+Iteration 18:
+  Total Time: 0.468730
+  Time SAT solving: 0.008190
+  Time running DIP on oracle: 0.051318
+  Time adding new constraint: 0.409213
+
+Iteration 19:
+  Total Time: 0.447723
+  Time SAT solving: 0.012864
+  Time running DIP on oracle: 0.059798
+  Time adding new constraint: 0.375050
+
+Iteration 20:
+  Total Time: 0.399551
+  Time SAT solving: 0.008100
+  Time running DIP on oracle: 0.054219
+  Time adding new constraint: 0.337224
+
+Iteration 21:
+  Total Time: 0.398328
+  Time SAT solving: 0.009600
+  Time running DIP on oracle: 0.054076
+  Time adding new constraint: 0.334644
+
+Iteration 22:
+  Total Time: 0.391190
+  Time SAT solving: 0.008392
+  Time running DIP on oracle: 0.051252
+  Time adding new constraint: 0.331537
+
+Iteration 23:
+  Total Time: 0.383896
+  Time SAT solving: 0.008748
+  Time running DIP on oracle: 0.050118
+  Time adding new constraint: 0.325022
+
+Iteration 24:
+  Total Time: 0.458829
+  Time SAT solving: 0.008634
+  Time running DIP on oracle: 0.051563
+  Time adding new constraint: 0.398623
+
+Iteration 25:
+  Total Time: 0.403090
+  Time SAT solving: 0.010633
+  Time running DIP on oracle: 0.055607
+  Time adding new constraint: 0.336842
+
+Iteration 26:
+  Total Time: 0.415152
+  Time SAT solving: 0.008395
+  Time running DIP on oracle: 0.051968
+  Time adding new constraint: 0.354780
+
+Iteration 27:
+  Total Time: 0.392174
+  Time SAT solving: 0.009613
+  Time running DIP on oracle: 0.055565
+  Time adding new constraint: 0.326988
+
+Iteration 28:
+  Total Time: 0.415474
+  Time SAT solving: 0.008420
+  Time running DIP on oracle: 0.054789
+  Time adding new constraint: 0.352256
+
+Iteration 29:
+  Total Time: 0.412200
+  Time SAT solving: 0.008403
+  Time running DIP on oracle: 0.056164
+  Time adding new constraint: 0.347625
+
+Iteration 30:
+  Total Time: 0.394235
+  Time SAT solving: 0.009096
+  Time running DIP on oracle: 0.056609
+  Time adding new constraint: 0.328521
+
+Iteration 31:
+  Total Time: 0.393252
+  Time SAT solving: 0.008515
+  Time running DIP on oracle: 0.055603
+  Time adding new constraint: 0.329125
+
+Iteration 32:
+  Total Time: 0.401324
+  Time SAT solving: 0.008423
+  Time running DIP on oracle: 0.052603
+  Time adding new constraint: 0.340288
+
+Iteration 33:
+  Total Time: 0.384874
+  Time SAT solving: 0.008161
+  Time running DIP on oracle: 0.051724
+  Time adding new constraint: 0.324980
+
+Iteration 34:
+  Total Time: 0.402992
+  Time SAT solving: 0.008812
+  Time running DIP on oracle: 0.055116
+  Time adding new constraint: 0.339055
+
+Iteration 35:
+  Total Time: 0.397597
+  Time SAT solving: 0.008201
+  Time running DIP on oracle: 0.052286
+  Time adding new constraint: 0.337101
+
+Iteration 36:
+  Total Time: 0.388621
+  Time SAT solving: 0.008225
+  Time running DIP on oracle: 0.053530
+  Time adding new constraint: 0.326858
+
+Iteration 37:
+  Total Time: 0.393713
+  Time SAT solving: 0.008108
+  Time running DIP on oracle: 0.053085
+  Time adding new constraint: 0.332510
+
+Iteration 38:
+  Total Time: 0.433731
+  Time SAT solving: 0.008592
+  Time running DIP on oracle: 0.052082
+  Time adding new constraint: 0.373049
+
+Iteration 39:
+  Total Time: 0.445129
+  Time SAT solving: 0.012440
+  Time running DIP on oracle: 0.085928
+  Time adding new constraint: 0.346749
+
+Iteration 40:
+  Total Time: 0.381905
+  Time SAT solving: 0.008507
+  Time running DIP on oracle: 0.052021
+  Time adding new constraint: 0.321370
+
+Iteration 41:
+  Total Time: 0.398227
+  Time SAT solving: 0.007816
+  Time running DIP on oracle: 0.055452
+  Time adding new constraint: 0.334950
+
+Iteration 42:
+  Total Time: 0.402911
+  Time SAT solving: 0.010361
+  Time running DIP on oracle: 0.053231
+  Time adding new constraint: 0.339310
+
+Iteration 43:
+  Total Time: 0.392988
+  Time SAT solving: 0.007227
+  Time running DIP on oracle: 0.053484
+  Time adding new constraint: 0.332269
+
+Iteration 44:
+  Total Time: 0.421401
+  Time SAT solving: 0.008691
+  Time running DIP on oracle: 0.055063
+  Time adding new constraint: 0.357637
+
+Iteration 45:
+  Total Time: 0.404220
+  Time SAT solving: 0.008865
+  Time running DIP on oracle: 0.056702
+  Time adding new constraint: 0.338643
+
+Iteration 46:
+  Total Time: 0.392565
+  Time SAT solving: 0.008617
+  Time running DIP on oracle: 0.053504
+  Time adding new constraint: 0.330435
+
+Iteration 47:
+  Total Time: 0.404784
+  Time SAT solving: 0.009226
+  Time running DIP on oracle: 0.052538
+  Time adding new constraint: 0.343010
+
+Iteration 48:
+  Total Time: 0.413844
+  Time SAT solving: 0.009534
+  Time running DIP on oracle: 0.050820
+  Time adding new constraint: 0.353482
+
+Iteration 49:
+  Total Time: 0.443925
+  Time SAT solving: 0.008907
+  Time running DIP on oracle: 0.057450
+  Time adding new constraint: 0.377559
+
+Iteration 50:
+  Total Time: 0.404017
+  Time SAT solving: 0.007755
+  Time running DIP on oracle: 0.054496
+  Time adding new constraint: 0.341757
+
+Iteration 51:
+  Total Time: 0.408163
+  Time SAT solving: 0.008538
+  Time running DIP on oracle: 0.052015
+  Time adding new constraint: 0.347600
+
+Iteration 52:
+  Total Time: 0.387955
+  Time SAT solving: 0.010394
+  Time running DIP on oracle: 0.054061
+  Time adding new constraint: 0.323490
+
+Iteration 53:
+  Total Time: 0.463118
+  Time SAT solving: 0.009268
+  Time running DIP on oracle: 0.052376
+  Time adding new constraint: 0.401465
+
+Iteration 54:
+  Total Time: 0.410741
+  Time SAT solving: 0.008771
+  Time running DIP on oracle: 0.062470
+  Time adding new constraint: 0.339491
+
+# Iterations: 54
+Average time/iteration: 0.411156
+Stdev of time/iteration: 0.023622
+
+Finding key...
+
+Expected key: 01010110100111100001100010001100
+Found key:    01010110100111100001100010001100
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 34.699s
+
+------------- c3540 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 50
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.453143
+  Time SAT solving: 0.007308
+  Time running DIP on oracle: 0.018440
+  Time adding new constraint: 0.427381
+
+Iteration 2:
+  Total Time: 0.440449
+  Time SAT solving: 0.005160
+  Time running DIP on oracle: 0.017695
+  Time adding new constraint: 0.417583
+
+Iteration 3:
+  Total Time: 0.415746
+  Time SAT solving: 0.004245
+  Time running DIP on oracle: 0.016799
+  Time adding new constraint: 0.394692
+
+Iteration 4:
+  Total Time: 0.443032
+  Time SAT solving: 0.005616
+  Time running DIP on oracle: 0.017012
+  Time adding new constraint: 0.420396
+
+Iteration 5:
+  Total Time: 0.446146
+  Time SAT solving: 0.005938
+  Time running DIP on oracle: 0.018195
+  Time adding new constraint: 0.422005
+
+Iteration 6:
+  Total Time: 0.431999
+  Time SAT solving: 0.005409
+  Time running DIP on oracle: 0.017816
+  Time adding new constraint: 0.408764
+
+Iteration 7:
+  Total Time: 0.433870
+  Time SAT solving: 0.005507
+  Time running DIP on oracle: 0.017524
+  Time adding new constraint: 0.410830
+
+Iteration 8:
+  Total Time: 0.442708
+  Time SAT solving: 0.006393
+  Time running DIP on oracle: 0.017601
+  Time adding new constraint: 0.418704
+
+Iteration 9:
+  Total Time: 0.445438
+  Time SAT solving: 0.005866
+  Time running DIP on oracle: 0.017081
+  Time adding new constraint: 0.422480
+
+Iteration 10:
+  Total Time: 0.436854
+  Time SAT solving: 0.005619
+  Time running DIP on oracle: 0.020066
+  Time adding new constraint: 0.411159
+
+Iteration 11:
+  Total Time: 0.440663
+  Time SAT solving: 0.006683
+  Time running DIP on oracle: 0.018002
+  Time adding new constraint: 0.415971
+
+Iteration 12:
+  Total Time: 0.461611
+  Time SAT solving: 0.005579
+  Time running DIP on oracle: 0.019177
+  Time adding new constraint: 0.436845
+
+Iteration 13:
+  Total Time: 0.437732
+  Time SAT solving: 0.006003
+  Time running DIP on oracle: 0.019715
+  Time adding new constraint: 0.412005
+
+Iteration 14:
+  Total Time: 0.430880
+  Time SAT solving: 0.006523
+  Time running DIP on oracle: 0.018296
+  Time adding new constraint: 0.406053
+
+Iteration 15:
+  Total Time: 0.446791
+  Time SAT solving: 0.006215
+  Time running DIP on oracle: 0.017106
+  Time adding new constraint: 0.423461
+
+Iteration 16:
+  Total Time: 0.507825
+  Time SAT solving: 0.005922
+  Time running DIP on oracle: 0.018324
+  Time adding new constraint: 0.483570
+
+Iteration 17:
+  Total Time: 0.450246
+  Time SAT solving: 0.006252
+  Time running DIP on oracle: 0.017243
+  Time adding new constraint: 0.426740
+
+Iteration 18:
+  Total Time: 0.425938
+  Time SAT solving: 0.007347
+  Time running DIP on oracle: 0.018053
+  Time adding new constraint: 0.400527
+
+# Iterations: 18
+Average time/iteration: 0.443948
+Stdev of time/iteration: 0.019068
+
+Finding key...
+
+Expected key: 00011000001001000111101011010101
+Found key:    00011000001001000111101011010101
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 15.714s
+
+------------- c432 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 36
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.074739
+  Time SAT solving: 0.008075
+  Time running DIP on oracle: 0.014669
+  Time adding new constraint: 0.051981
+
+Iteration 2:
+  Total Time: 0.066473
+  Time SAT solving: 0.004926
+  Time running DIP on oracle: 0.014312
+  Time adding new constraint: 0.047227
+
+Iteration 3:
+  Total Time: 0.069239
+  Time SAT solving: 0.005647
+  Time running DIP on oracle: 0.014183
+  Time adding new constraint: 0.049402
+
+Iteration 4:
+  Total Time: 0.068719
+  Time SAT solving: 0.005661
+  Time running DIP on oracle: 0.012730
+  Time adding new constraint: 0.050320
+
+Iteration 5:
+  Total Time: 0.066584
+  Time SAT solving: 0.005653
+  Time running DIP on oracle: 0.012049
+  Time adding new constraint: 0.048874
+
+Iteration 6:
+  Total Time: 0.066625
+  Time SAT solving: 0.007711
+  Time running DIP on oracle: 0.011592
+  Time adding new constraint: 0.047314
+
+Iteration 7:
+  Total Time: 0.067957
+  Time SAT solving: 0.007257
+  Time running DIP on oracle: 0.012130
+  Time adding new constraint: 0.048561
+
+Iteration 8:
+  Total Time: 0.065328
+  Time SAT solving: 0.005639
+  Time running DIP on oracle: 0.011810
+  Time adding new constraint: 0.047872
+
+Iteration 9:
+  Total Time: 0.073896
+  Time SAT solving: 0.005679
+  Time running DIP on oracle: 0.012109
+  Time adding new constraint: 0.056100
+
+Iteration 10:
+  Total Time: 0.072999
+  Time SAT solving: 0.006220
+  Time running DIP on oracle: 0.011736
+  Time adding new constraint: 0.055035
+
+Iteration 11:
+  Total Time: 0.066979
+  Time SAT solving: 0.005846
+  Time running DIP on oracle: 0.015605
+  Time adding new constraint: 0.045519
+
+Iteration 12:
+  Total Time: 0.062181
+  Time SAT solving: 0.005698
+  Time running DIP on oracle: 0.011538
+  Time adding new constraint: 0.044936
+
+Iteration 13:
+  Total Time: 0.062020
+  Time SAT solving: 0.005495
+  Time running DIP on oracle: 0.012585
+  Time adding new constraint: 0.043932
+
+# Iterations: 13
+Average time/iteration: 0.067980
+Stdev of time/iteration: 0.003992
+
+Finding key...
+
+Expected key: 01011011101010000001011000100010
+Found key:    01011011101010000001011000100010
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 1.788s
+
+------------- c499 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 41
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.071575
+  Time SAT solving: 0.006336
+  Time running DIP on oracle: 0.018252
+  Time adding new constraint: 0.046971
+
+Iteration 2:
+  Total Time: 0.073905
+  Time SAT solving: 0.007521
+  Time running DIP on oracle: 0.018053
+  Time adding new constraint: 0.048321
+
+Iteration 3:
+  Total Time: 0.077888
+  Time SAT solving: 0.007293
+  Time running DIP on oracle: 0.018834
+  Time adding new constraint: 0.051751
+
+Iteration 4:
+  Total Time: 0.077205
+  Time SAT solving: 0.007634
+  Time running DIP on oracle: 0.016717
+  Time adding new constraint: 0.052846
+
+Iteration 5:
+  Total Time: 0.075929
+  Time SAT solving: 0.007728
+  Time running DIP on oracle: 0.017539
+  Time adding new constraint: 0.050652
+
+Iteration 6:
+  Total Time: 0.073577
+  Time SAT solving: 0.007774
+  Time running DIP on oracle: 0.017102
+  Time adding new constraint: 0.048692
+
+Iteration 7:
+  Total Time: 0.073991
+  Time SAT solving: 0.007300
+  Time running DIP on oracle: 0.017299
+  Time adding new constraint: 0.049379
+
+Iteration 8:
+  Total Time: 0.076355
+  Time SAT solving: 0.010469
+  Time running DIP on oracle: 0.017604
+  Time adding new constraint: 0.048271
+
+Iteration 9:
+  Total Time: 0.073784
+  Time SAT solving: 0.007610
+  Time running DIP on oracle: 0.018297
+  Time adding new constraint: 0.047869
+
+Iteration 10:
+  Total Time: 0.074952
+  Time SAT solving: 0.008095
+  Time running DIP on oracle: 0.018059
+  Time adding new constraint: 0.048790
+
+Iteration 11:
+  Total Time: 0.076473
+  Time SAT solving: 0.007864
+  Time running DIP on oracle: 0.017396
+  Time adding new constraint: 0.051205
+
+Iteration 12:
+  Total Time: 0.075718
+  Time SAT solving: 0.008092
+  Time running DIP on oracle: 0.016995
+  Time adding new constraint: 0.050621
+
+Iteration 13:
+  Total Time: 0.080947
+  Time SAT solving: 0.011711
+  Time running DIP on oracle: 0.018008
+  Time adding new constraint: 0.051219
+
+# Iterations: 13
+Average time/iteration: 0.075561
+Stdev of time/iteration: 0.002368
+
+Finding key...
+
+Expected key: 10010011110110111011111100110111
+Found key:    10010011110110111011111100110111
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 1.925s
+
+------------- c5315 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 178
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 0.746670
+  Time SAT solving: 0.013657
+  Time running DIP on oracle: 0.051026
+  Time adding new constraint: 0.681975
+
+Iteration 2:
+  Total Time: 0.707240
+  Time SAT solving: 0.005114
+  Time running DIP on oracle: 0.045658
+  Time adding new constraint: 0.656458
+
+Iteration 3:
+  Total Time: 0.715700
+  Time SAT solving: 0.006894
+  Time running DIP on oracle: 0.046217
+  Time adding new constraint: 0.662577
+
+Iteration 4:
+  Total Time: 0.716817
+  Time SAT solving: 0.006817
+  Time running DIP on oracle: 0.045213
+  Time adding new constraint: 0.664778
+
+Iteration 5:
+  Total Time: 0.770211
+  Time SAT solving: 0.006643
+  Time running DIP on oracle: 0.044190
+  Time adding new constraint: 0.719370
+
+Iteration 6:
+  Total Time: 0.749404
+  Time SAT solving: 0.011270
+  Time running DIP on oracle: 0.066862
+  Time adding new constraint: 0.671259
+
+Iteration 7:
+  Total Time: 0.718968
+  Time SAT solving: 0.009274
+  Time running DIP on oracle: 0.047224
+  Time adding new constraint: 0.662463
+
+Iteration 8:
+  Total Time: 0.739207
+  Time SAT solving: 0.008076
+  Time running DIP on oracle: 0.045970
+  Time adding new constraint: 0.685154
+
+Iteration 9:
+  Total Time: 0.754391
+  Time SAT solving: 0.009485
+  Time running DIP on oracle: 0.047456
+  Time adding new constraint: 0.697440
+
+Iteration 10:
+  Total Time: 0.780658
+  Time SAT solving: 0.007746
+  Time running DIP on oracle: 0.045926
+  Time adding new constraint: 0.726976
+
+# Iterations: 10
+Average time/iteration: 0.739927
+Stdev of time/iteration: 0.024832
+
+Finding key...
+
+Expected key: 10101001011001110101001100001011
+Found key:    10101001011001110101001100001011
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 16.607s
+
+------------- c6288 -------------
+
+------------- c7552 -------------
+
+Reading in locked circuit...
+Reading in unlocked circuit...
+
+# Primary Inputs: 207
+# Key Inputs: 32
+
+Iteration 1:
+  Total Time: 1.218733
+  Time SAT solving: 0.020751
+  Time running DIP on oracle: 0.052547
+  Time adding new constraint: 1.145423
+
+Iteration 2:
+  Total Time: 1.198014
+  Time SAT solving: 0.007305
+  Time running DIP on oracle: 0.050614
+  Time adding new constraint: 1.140084
+
+Iteration 3:
+  Total Time: 1.215421
+  Time SAT solving: 0.007699
+  Time running DIP on oracle: 0.054817
+  Time adding new constraint: 1.152895
+
+Iteration 4:
+  Total Time: 1.185313
+  Time SAT solving: 0.008569
+  Time running DIP on oracle: 0.048264
+  Time adding new constraint: 1.128472
+
+Iteration 5:
+  Total Time: 1.126755
+  Time SAT solving: 0.007614
+  Time running DIP on oracle: 0.046951
+  Time adding new constraint: 1.072179
+
+Iteration 6:
+  Total Time: 1.200231
+  Time SAT solving: 0.008254
+  Time running DIP on oracle: 0.051237
+  Time adding new constraint: 1.140731
+
+Iteration 7:
+  Total Time: 1.199768
+  Time SAT solving: 0.007907
+  Time running DIP on oracle: 0.046718
+  Time adding new constraint: 1.145133
+
+Iteration 8:
+  Total Time: 1.126275
+  Time SAT solving: 0.009852
+  Time running DIP on oracle: 0.046726
+  Time adding new constraint: 1.069688
+
+Iteration 9:
+  Total Time: 1.169925
+  Time SAT solving: 0.006474
+  Time running DIP on oracle: 0.045136
+  Time adding new constraint: 1.118306
+
+Iteration 10:
+  Total Time: 1.214207
+  Time SAT solving: 0.012133
+  Time running DIP on oracle: 0.047208
+  Time adding new constraint: 1.154857
+
+# Iterations: 10
+Average time/iteration: 1.185464
+Stdev of time/iteration: 0.034322
+
+Finding key...
+
+Expected key: 11111100001001000011100111101111
+Found key:    11111100001001000011100111101111
+
+Checking for circuit equivalence...
+Locked and unlocked circuits match
+
+Elapsed time: 25.968s
+

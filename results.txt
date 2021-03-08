@@ -1,0 +1,206 @@
+------------- c1355 -------------
+  Time SAT solving: 0.008057
+  Time SAT solving: 0.006164
+  Time SAT solving: 0.007808
+  Time SAT solving: 0.008677
+  Time SAT solving: 0.007988
+  Time SAT solving: 0.007719
+  Time SAT solving: 0.009329
+  Time SAT solving: 0.007961
+  Time SAT solving: 0.007641
+  Time SAT solving: 0.007672
+  Time SAT solving: 0.006361
+  Time SAT solving: 0.008224
+  Time SAT solving: 0.007885
+  Time SAT solving: 0.007692
+  Time SAT solving: 0.007909
+  Time SAT solving: 0.008336
+  Time SAT solving: 0.008112
+  Time SAT solving: 0.008562
+  Time SAT solving: 0.008490
+  Time SAT solving: 0.008746
+  Time SAT solving: 0.008018
+  Time SAT solving: 0.008279
+  Time SAT solving: 0.008368
+  Time SAT solving: 0.008291
+  Time SAT solving: 0.007840
+  Time SAT solving: 0.007815
+  Time SAT solving: 0.007343
+  Time SAT solving: 0.008038
+  Time SAT solving: 0.008187
+  Time SAT solving: 0.009191
+# Iterations: 30
+Average time/iteration: 0.192887
+Stdev of time/iteration: 0.011284
+
+------------- c1908 -------------
+  Time SAT solving: 0.005497
+  Time SAT solving: 0.006027
+  Time SAT solving: 0.006628
+  Time SAT solving: 0.006615
+  Time SAT solving: 0.006701
+  Time SAT solving: 0.006198
+  Time SAT solving: 0.006278
+  Time SAT solving: 0.008163
+  Time SAT solving: 0.008763
+  Time SAT solving: 0.006791
+  Time SAT solving: 0.006906
+  Time SAT solving: 0.006038
+# Iterations: 12
+Average time/iteration: 0.242944
+
+------------- c2670 -------------
+
+  Time SAT solving: 0.018709
+  Time SAT solving: 0.003957
+  Time SAT solving: 0.004532
+  Time SAT solving: 0.004302
+  Time SAT solving: 0.008101
+  Time SAT solving: 0.007810
+  Time SAT solving: 0.006611
+  Time SAT solving: 0.007413
+  Time SAT solving: 0.009617
+  Time SAT solving: 0.008256
+  Time SAT solving: 0.008098
+  Time SAT solving: 0.010125
+  Time SAT solving: 0.008484
+  Time SAT solving: 0.008253
+  Time SAT solving: 0.009538
+  Time SAT solving: 0.008847
+  Time SAT solving: 0.008913
+  Time SAT solving: 0.008190
+  Time SAT solving: 0.012864
+  Time SAT solving: 0.008100
+  Time SAT solving: 0.009600
+  Time SAT solving: 0.008392
+  Time SAT solving: 0.008748
+  Time SAT solving: 0.008634
+  Time SAT solving: 0.010633
+  Time SAT solving: 0.008395
+  Time SAT solving: 0.009613
+  Time SAT solving: 0.008420
+  Time SAT solving: 0.008403
+  Time SAT solving: 0.009096
+  Time SAT solving: 0.008515
+  Time SAT solving: 0.008423
+  Time SAT solving: 0.008161
+  Time SAT solving: 0.008812
+  Time SAT solving: 0.008201
+  Time SAT solving: 0.008225
+  Time SAT solving: 0.008108
+  Time SAT solving: 0.008592
+  Time SAT solving: 0.012440
+  Time SAT solving: 0.008507
+  Time SAT solving: 0.007816
+  Time SAT solving: 0.010361
+  Time SAT solving: 0.007227
+  Time SAT solving: 0.008691
+  Time SAT solving: 0.008865
+  Time SAT solving: 0.008617
+  Time SAT solving: 0.009226
+  Time SAT solving: 0.009534
+  Time SAT solving: 0.008907
+  Time SAT solving: 0.007755
+  Time SAT solving: 0.008538
+  Time SAT solving: 0.010394
+  Time SAT solving: 0.009268
+  Time SAT solving: 0.008771
+# Iterations: 54
+Average time/iteration: 0.411156
+Stdev of time/iteration: 0.023622
+
+------------- c3540 -------------
+
+  Time SAT solving: 0.007308
+  Time SAT solving: 0.005160
+  Time SAT solving: 0.004245
+  Time SAT solving: 0.005616
+  Time SAT solving: 0.005938
+  Time SAT solving: 0.005409
+  Time SAT solving: 0.005507
+  Time SAT solving: 0.006393
+  Time SAT solving: 0.005866
+  Time SAT solving: 0.005619
+  Time SAT solving: 0.006683
+  Time SAT solving: 0.005579
+  Time SAT solving: 0.006003
+  Time SAT solving: 0.006523
+  Time SAT solving: 0.006215
+  Time SAT solving: 0.005922
+  Time SAT solving: 0.006252
+  Time SAT solving: 0.007347
+# Iterations: 18
+Average time/iteration: 0.443948
+Stdev of time/iteration: 0.019068
+
+------------- c432 -------------
+
+  Time SAT solving: 0.008075
+  Time SAT solving: 0.004926
+  Time SAT solving: 0.005647
+  Time SAT solving: 0.005661
+  Time SAT solving: 0.005653
+  Time SAT solving: 0.007711
+  Time SAT solving: 0.007257
+  Time SAT solving: 0.005639
+  Time SAT solving: 0.005679
+  Time SAT solving: 0.006220
+  Time SAT solving: 0.005846
+  Time SAT solving: 0.005698
+  Time SAT solving: 0.005495
+# Iterations: 13
+Average time/iteration: 0.067980
+Stdev of time/iteration: 0.003992
+
+------------- c499 -------------
+
+  Time SAT solving: 0.006336
+  Time SAT solving: 0.007521
+  Time SAT solving: 0.007293
+  Time SAT solving: 0.007634
+  Time SAT solving: 0.007728
+  Time SAT solving: 0.007774
+  Time SAT solving: 0.007300
+  Time SAT solving: 0.010469
+  Time SAT solving: 0.007610
+  Time SAT solving: 0.008095
+  Time SAT solving: 0.007864
+  Time SAT solving: 0.008092
+  Time SAT solving: 0.011711
+# Iterations: 13
+Average time/iteration: 0.075561
+Stdev of time/iteration: 0.002368
+
+------------- c5315 -------------
+
+  Time SAT solving: 0.013657
+  Time SAT solving: 0.005114
+  Time SAT solving: 0.006894
+  Time SAT solving: 0.006817
+  Time SAT solving: 0.006643
+  Time SAT solving: 0.011270
+  Time SAT solving: 0.009274
+  Time SAT solving: 0.008076
+  Time SAT solving: 0.009485
+  Time SAT solving: 0.007746
+# Iterations: 10
+Average time/iteration: 0.739927
+Stdev of time/iteration: 0.024832
+
+------------- c6288 -------------
+
+------------- c7552 -------------
+
+  Time SAT solving: 0.020751
+  Time SAT solving: 0.007305
+  Time SAT solving: 0.007699
+  Time SAT solving: 0.008569
+  Time SAT solving: 0.007614
+  Time SAT solving: 0.008254
+  Time SAT solving: 0.007907
+  Time SAT solving: 0.009852
+  Time SAT solving: 0.006474
+  Time SAT solving: 0.012133
+# Iterations: 10
+Average time/iteration: 1.185464
+Stdev of time/iteration: 0.034322
