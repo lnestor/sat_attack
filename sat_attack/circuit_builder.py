@@ -66,24 +66,25 @@ class CircuitBuilder():
         node: the node to find the z3 representation for
         fanin: the input nodes the the node
         """
-        if node.type == "And":
+        if node.type == "and":
             node.z3_repr = And(*fanin)
-        elif node.type == "Xor":
+        elif node.type == "xor":
             node.z3_repr = Xor(*fanin)
-        elif node.type == "Or":
+        elif node.type == "or":
             node.z3_repr = Or(*fanin)
-        elif node.type == "Not":
+        elif node.type == "not":
             node.z3_repr = Not(*fanin)
-        elif node.type == "Nand":
+        elif node.type == "nand":
             node.z3_repr = Not(And(*fanin))
-        elif node.type == "Xnor":
+        elif node.type == "xnor":
             node.z3_repr = Not(Xor(*fanin))
-        elif node.type == "Nor":
+        elif node.type == "nor":
             node.z3_repr = Not(Or(*fanin))
-        elif node.type == "Buffer":
+        elif node.type == "buffer" or node.type == "buf":
             node.z3_repr = Not(Not(*fanin))
         else:
             print("Unknown node type " + str(node))
+            import pdb; pdb.set_trace()
             raise
 
     def _build_key(self, node, name, key_suffix):

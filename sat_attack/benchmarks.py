@@ -1,6 +1,21 @@
+from pyverilog.vparser.parser import parse
+
 import circuit
 import tokenizer
 import parser
+from ast_parser import parse_ast
+
+# def read_nodes(filename):
+#     """
+#     Reads in the nodes of a circuit from a benchmakr file.
+#     filename: the name of the benchmark file
+#     returns: the nodes of the circuit, the output names of the circuit
+#     """
+#     with open(filename) as f:
+#         t = tokenizer.Tokenizer(f)
+#         p = parser.Parser()
+#         nodes, output_names = p.parse(t)
+#         return nodes, output_names
 
 def read_nodes(filename):
     """
@@ -8,11 +23,16 @@ def read_nodes(filename):
     filename: the name of the benchmark file
     returns: the nodes of the circuit, the output names of the circuit
     """
-    with open(filename) as f:
-        t = tokenizer.Tokenizer(f)
-        p = parser.Parser()
-        nodes, output_names = p.parse(t)
-        return nodes, output_names
+    ast, directives = parse([filename])
+    ckt_graph = parse_ast(ast)
+
+    return ckt_graph.nodes, ckt_graph.outputs
+
+#     with open(filename) as f:
+#         t = tokenizer.Tokenizer(f)
+#         p = parser.Parser()
+#         nodes, output_names = p.parse(t)
+#         return nodes, output_names
 
 def read_ckt(filename):
     """
