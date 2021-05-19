@@ -32,3 +32,6 @@ class TokenType(Enum):
     NAND = 23
     XNOR = 24
     NOR = 25
+
+    ASSIGN = 26
+    EQUAL = 27

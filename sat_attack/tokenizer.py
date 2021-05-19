@@ -27,6 +27,7 @@ class Tokenizer():
         "nand": TokenType.NAND,
         "xnor": TokenType.XNOR,
         "nor": TokenType.NOR,
+        "assign": TokenType.ASSIGN,
         "endmodule": TokenType.ENDMODULE
     }
 
@@ -92,7 +93,10 @@ class Tokenizer():
                 elif next_char == ":":
                     self.token_type = TokenType.COLON
                     break
-                elif next_char.isalpha() or next_char == "_":
+                elif next_char == "=":
+                    self.token_type = TokenType.EQUAL
+                    break
+                elif next_char.isalpha() or next_char == "_" or next_char == ".":
                     state = State.GATHERING_IDENTIFIER
                 elif next_char.isdigit():
                     state = State.GATHERING_DIGITS
