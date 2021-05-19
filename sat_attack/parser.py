@@ -1,6 +1,7 @@
 from node import Node
 from token_type import TokenType
 
+
 class Parser():
     def parse(self, tokenizer):
         """
@@ -23,6 +24,8 @@ class Parser():
                 self._parse_outputs(tokenizer)
             elif token_type == TokenType.WIRE:
                 self._parse_wires(tokenizer)
+            elif token_type == TokenType.ASSIGN:
+                self._parse_assign(tokenizer)
             elif token_type == TokenType.AND:
                 self._parse_gate(tokenizer, "And")
             elif token_type == TokenType.XOR:
@@ -48,7 +51,7 @@ class Parser():
 
         tokenizer: the Tokenizer object with the verilog input
         """
-        tokenizer.skip_token() # input token
+        tokenizer.skip_token()  # input token
 
         while True:
             # This check is NOT robust and could be improved probably
@@ -71,7 +74,7 @@ class Parser():
 
         tokenizer: the Tokenizer object with the verilog input
         """
-        tokenizer.skip_token() # output token
+        tokenizer.skip_token()  # output token
 
         while True:
             self.outputs.append(tokenizer.id_value())
@@ -90,14 +93,14 @@ class Parser():
 
         tokenizer: the Tokenizer object with the verilog input
         """
-        tokenizer.skip_token() # wire token
+        tokenizer.skip_token()  # wire token
 
         while True:
             if tokenizer.get_token_type() == TokenType.SEMICOLON:
-                tokenizer.skip_token() # semicolon
+                tokenizer.skip_token()  # semicolon
                 break
             elif tokenizer.get_token_type() == TokenType.COMMA:
-                tokenizer.skip_token() # comma
+                tokenizer.skip_token()  # comma
             elif tokenizer.get_token_type() == TokenType.LEFT_BRACKET:
                 self._parse_bus(tokenizer)
             else:
@@ -109,15 +112,15 @@ class Parser():
 
         tokenizer: the Tokenizer object with the verilog input
         """
-        tokenizer.skip_token() # left bracket
+        tokenizer.skip_token()  # left bracket
         low_number = tokenizer.int_value()
-        tokenizer.skip_token() # low number
-        tokenizer.skip_token() # colon
+        tokenizer.skip_token()  # low number
+        tokenizer.skip_token()  # colon
         high_number = tokenizer.int_value()
-        tokenizer.skip_token() # high value
-        tokenizer.skip_token() # right bracket
+        tokenizer.skip_token()  # high value
+        tokenizer.skip_token()  # right bracket
         bus_name = tokenizer.id_value()
-        tokenizer.skip_token() # bus name
+        tokenizer.skip_token()  # bus name
 
         for i in range(high_number - low_number + 1):
             wire_name = bus_name + "__index" + str(i)
@@ -138,28 +141,28 @@ class Parser():
 
         tokenizer: the Tokenizer object with the verilog input
         """
-        tokenizer.skip_token() # gate token
-        tokenizer.skip_token() # gate identifier token
-        tokenizer.skip_token() # left paren token
+        tokenizer.skip_token()  # gate token
+        tokenizer.skip_token()  # gate identifier token
+        tokenizer.skip_token()  # left paren token
 
         output_name = self._parse_id(tokenizer)
-        tokenizer.skip_token() # comma
+        tokenizer.skip_token()  # comma
 
         inputs = []
         while True:
             if tokenizer.get_token_type() == TokenType.RIGHT_PAREN:
-                tokenizer.skip_token() # right paren
+                tokenizer.skip_token()  # right paren
                 break
             elif tokenizer.get_token_type() == TokenType.IDENTIFIER:
                 input_name = self._parse_id(tokenizer)
                 inputs.append(input_name)
             elif tokenizer.get_token_type() == TokenType.COMMA:
-                tokenizer.skip_token() # comma
+                tokenizer.skip_token()  # comma
             else:
                 print("Error: unexpected token type " + tokenizer.get_token_type())
                 raise
 
-        tokenizer.skip_token() # semicolon
+        tokenizer.skip_token()  # semicolon
         self.nodes[output_name].inputs = inputs
         self.nodes[output_name].type = gate_type
 
@@ -170,15 +173,33 @@ class Parser():
         tokenizer: the Tokenizer object with the Verilog input
         """
         id_name = tokenizer.id_value()
-        tokenizer.skip_token() # id
+        tokenizer.skip_token()  # id
 
         if tokenizer.get_token_type() == TokenType.LEFT_BRACKET:
-            tokenizer.skip_token() # left bracket
+            tokenizer.skip_token()  # left bracket
             index = tokenizer.int_value()
-            tokenizer.skip_token() # number
-            tokenizer.skip_token() # right bracket
+            tokenizer.skip_token()  # number
+            tokenizer.skip_token()  # right bracket
 
             return id_name + "__index" + str(index)
         else:
             return id_name
 
+    def _parse_assign(self, tokenizer):
+        """
+        Parses the assign operation
+
+        tokenizer: the Tokenizer object with the verilog input
+        """
+        tokenizer.skip_token()  # assign token
+        output_name = self._parse_id(tokenizer)
+        tokenizer.skip_token()  # equal
+
+        inputs = []
+        input_name = self._parse_id(tokenizer)
+        for i in range(2):
+            inputs.append(input_name)
+        tokenizer.skip_token()  # semicolon
+
+        self.nodes[output_name].inputs = inputs
+        self.nodes[output_name].type = "Or"  # use or operation to simulate assign operation
