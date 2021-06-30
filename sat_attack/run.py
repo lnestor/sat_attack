@@ -3,6 +3,8 @@ import time
 
 import sat_attack
 
+import csv
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Perform a SAT attack on a locked circuit.")
     parser.add_argument("locked_ckt", help="The locked benchmark file")
@@ -12,6 +14,15 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
+#     already_done = set()
+#     with open("sat.csv", "r") as f:
+#         reader = csv.reader(f)
+#         for row in reader:
+#             already_done.add(row[0])
+
+    # if args.locked_ckt in already_done:
+    #     print("ALREADY DONE")
+    # else:
     attack = sat_attack.SatAttack(args.locked_ckt, args.oracle)
 
     start = time.time()

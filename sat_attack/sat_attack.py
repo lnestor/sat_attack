@@ -9,6 +9,8 @@ import iteration_timing
 import sat_model
 import oracle_runner
 
+import csv
+
 class SatAttack:
     """The main class for conducting the SAT attack."""
 
@@ -78,17 +80,23 @@ class SatAttack:
 
         print("\nFinding key...")
         key = self._find_key(oracle_io_pairs, key_inputs)
-        expected_key = benchmarks.get_expected_key(self.locked_filename)
+        # expected_key = benchmarks.get_expected_key(self.locked_filename)
 
-        print("\nExpected key: %s" % (self._key_string(expected_key)))
+        # print("\nExpected key: %s" % (self._key_string(expected_key)))
         print("Found key:    %s" % (self._key_string(key)))
 
         print("\nChecking for circuit equivalence...")
         self._check_key(key)
+        same = 0
         if self._check_key(key):
             print("Locked and unlocked circuits match\n")
+            same = 1
         else:
             print("Key found does not match oracle\n")
+
+        # with open("sat.csv", "a") as f:
+        end_time = time.time()
+        print("%s,%.3f,%i,%i\n" % (self.locked_filename, end_time - start_time, self.iterations, same))
 
     def _find_key(self, oracle_io_pairs, key_names):
         """

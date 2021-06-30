@@ -69,7 +69,13 @@ class CircuitBuilder():
         if node.type == "and":
             node.z3_repr = And(*fanin)
         elif node.type == "xor":
-            node.z3_repr = Xor(*fanin)
+            total_xor = Xor(fanin[0], fanin[1])
+
+            for i in range(len(fanin) - 2):
+                total_xor = Xor(total_xor, fanin[i + 2])
+
+            node.z3_repr = total_xor
+            # node.z3_repr = Xor(*fanin)
         elif node.type == "or":
             node.z3_repr = Or(*fanin)
         elif node.type == "not":
@@ -77,7 +83,13 @@ class CircuitBuilder():
         elif node.type == "nand":
             node.z3_repr = Not(And(*fanin))
         elif node.type == "xnor":
-            node.z3_repr = Not(Xor(*fanin))
+            total_xor = Xor(fanin[0], fanin[1])
+
+            for i in range(len(fanin) - 2):
+                total_xor = Xor(total_xor, fanin[i + 2])
+
+            node.z3_repr = Not(total_xor)
+            # node.z3_repr = Not(Xor(*fanin))
         elif node.type == "nor":
             node.z3_repr = Not(Or(*fanin))
         elif node.type == "buffer" or node.type == "buf":
